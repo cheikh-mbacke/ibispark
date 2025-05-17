@@ -1,0 +1,76 @@
+{
+  "Philibert": [
+    {
+      "number": 9,
+      "type": ["PMR", "STANDARD"],
+      "dimensions": {
+        "length": 3,
+        "width": 2.5,
+        "height": 2.2,
+        "surface": 12.5
+      },
+      "location": {
+        "floor": -1,
+        "section": "A",
+        "address": ""
+      },
+      "equipment": {
+        "electric_charging": true,
+        "camera": true,
+        "sensor": true
+      },
+      "pricing": {
+        "hourly_rate": 2.0,
+        "daily_rate": 15.0,
+        "monthly_rate": 150.0
+      },
+      "pictures": ["https://example.com/photos/1_pmr.jpg", ".."],
+      "status": [
+        { "value": "personnel", "color": "#F4CCCC" },
+        { "value": "late_checkout", "color": "#FF9900" },
+        { "value": "arrival_today", "color": "#00FF00" },
+        { "value": "already_in", "color": "#D9A384" },
+        { "value": "contact_hotel", "color": "#FF00FF" },
+        { "value": "external_company", "color": "#FFFF00" },
+        { "value": "unknown_occupation", "color": "#FF0000" }
+      ]
+    }
+  ],
+  "Seytour": [
+    {
+      "number": 9,
+      "type": ["PMR", "STANDARD"],
+      "dimensions": {
+        "length": 3,
+        "width": 2.5,
+        "height": 2.2,
+        "surface": 12.5
+      },
+      "location": {
+        "floor": -1,
+        "section": "A",
+        "address": ""
+      },
+      "equipment": {
+        "electric_charging": true,
+        "camera": true,
+        "sensor": true
+      },
+      "pricing": {
+        "hourly_rate": 2.0,
+        "daily_rate": 15.0,
+        "monthly_rate": 150.0
+      },
+      "pictures": ["https://example.com/photos/1_pmr.jpg", ".."],
+      "status": [
+        { "value": "personnel", "color": "#F4CCCC" },
+        { "value": "late_checkout", "color": "#FF9900" },
+        { "value": "arrival_today", "color": "#00FF00" },
+        { "value": "already_in", "color": "#D9A384" },
+        { "value": "contact_hotel", "color": "#FF00FF" },
+        { "value": "external_company", "color": "#FFFF00" },
+        { "value": "unknown_occupation", "color": "#FF0000" }
+      ]
+    }
+  ]
+}

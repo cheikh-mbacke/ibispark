@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestion des Parkings Hôtel</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header>
+        <div class="container header-content">
+            <div class="logo">Gestion des Parkings Hôtel</div>
+            <div class="date" id="current-date">17/05/2025</div>
+        </div>
+    </header>
+
+    <div class="container">
+        <div class="tabs">
+            <div class="tab active">Parking Philibert</div>
+            <div class="tab">Parking Seytour</div>
+        </div>
+
+        <div class="search-form">
+            <h2>Attribuer une place de parking</h2>
+            <form id="parking-form">
+                <div class="form-row">
+                    <div class="form-col">
+                        <div class="form-group">
+                            <label for="room-number">Numéro de chambre</label>
+                            <input type="number" id="room-number" placeholder="Ex: 422">
+                        </div>
+                    </div>
+                    <div class="form-col">
+                        <div class="form-group">
+                            <label for="guest-name">Nom</label>
+                            <input type="text" id="guest-name" placeholder="Nom du client">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-col">
+                        <div class="form-group">
+                            <label for="check-in">Date d'arrivée</label>
+                            <input type="date" id="check-in">
+                        </div>
+                    </div>
+                    <div class="form-col">
+                        <div class="form-group">
+                            <label for="check-out">Date de départ</label>
+                            <input type="date" id="check-out">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-col">
+                        <div class="form-group">
+                            <label for="car-make">Marque du véhicule</label>
+                            <input type="text" id="car-make" list="car-makes" placeholder="Ex: CITROEN, BMW">
+                            <datalist id="car-makes"></datalist>
+                        </div>
+                    </div>
+                    <div class="form-col">
+                        <div class="form-group">
+                            <label for="car-model">Modèle du véhicule</label>
+                            <input type="text" id="car-model" list="car-models" placeholder="Ex: SUV, FAVIA">
+                            <datalist id="car-models"></datalist>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-col">
+                        <div class="form-group">
+                            <label for="license-plate">Immatriculation</label>
+                            <input type="text" id="license-plate" list="license-plates" placeholder="Ex: GK4826D">
+                            <datalist id="license-plates"></datalist>
+                        </div>
+                    </div>
+                    <div class="form-col">
+                        <div class="form-group">
+                            <label for="status-type">Type d'occupation</label>
+                            <select id="status-type">
+                                <option value="personnel">Personnel hôtel</option>
+                                <option value="late-checkout">Départ tardif</option>
+                                <option value="arrival-today">Arrivée du jour</option>
+                                <option value="already-in">Déjà présent</option>
+                                <option value="contact-hotel">Contact hôtel/téléphone</option>
+                                <option value="external-company">Société extérieure</option>
+                                <option value="unknown-occupation">Occupation inconnue</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-col">
+                        <div class="form-group">
+                            <label for="parking-spot">Place de parking</label>
+                            <select id="parking-spot">
+                                <option value="">Sélectionner une place</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="button-group">
+                    <button type="button" id="assign-button" class="btn-primary">Attribuer la place</button>
+                    <button type="reset" class="btn-secondary">Réinitialiser</button>
+                </div>
+            </form>
+        </div>
+
+        <div class="legend">
+            <div class="legend-item">
+                <div class="legend-color" style="background-color: var(--personnel);"></div>
+                <span>Personnel hôtel</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-color" style="background-color: var(--late-checkout);"></div>
+                <span>Départ tardif</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-color" style="background-color: var(--arrival-today);"></div>
+                <span>Arrivée du jour</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-color" style="background-color: var(--already-in);"></div>
+                <span>Déjà présent</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-color" style="background-color: var(--contact-hotel);"></div>
+                <span>Contact hôtel</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-color" style="background-color: var(--external-company);"></div>
+                <span>Société extérieure</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-color" style="background-color: var(--unknown-occupation);"></div>
+                <span>Occupation inconnue</span>
+            </div>
+        </div>
+
+        <h2>Parking Philibert - Vue d'ensemble</h2>
+        <div class="parking-grid">
+            <!-- Les places de parking seront générées dynamiquement par JavaScript -->
+        </div>
+    </div>
+
+    <!-- Chargement des modules JavaScript -->
+    <script type="module" src="js/app.js"></script>
+</body>
+</html>

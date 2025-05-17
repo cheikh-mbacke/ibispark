@@ -1,0 +1,1301 @@
+{
+    "Philibert": [
+        {
+            "number": "1 PMR",
+            "type": "PMR",
+            "status": {
+                "label": "personnel",
+                "color": [
+                    {
+                        "label": "personnel",
+                        "value": "#F4CCCC"
+                    },
+                    {
+                        "label": "late_checkout",
+                        "value": "#FF9900"
+                    },
+                    {
+                        "label": "arrival_today",
+                        "value": "#00FF00"
+                    },
+                    {
+                        "label": "already_in",
+                        "value": "#D9A384"
+                    },
+                    {
+                        "label": "contact_hotel",
+                        "value": "#FF00FF"
+                    },
+                    {
+                        "label": "external_company",
+                        "value": "#FFFF00"
+                    },
+                    {
+                        "label": "unknown_occupation",
+                        "value": "#FF0000"
+                    }
+                ]
+            }
+        },
+        {
+            "number": "2",
+            "type": "standard",
+            "status": {
+                "label": "personnel",
+                "color": [
+                    {
+                        "label": "personnel",
+                        "value": "#F4CCCC"
+                    },
+                    {
+                        "label": "late_checkout",
+                        "value": "#FF9900"
+                    },
+                    {
+                        "label": "arrival_today",
+                        "value": "#00FF00"
+                    },
+                    {
+                        "label": "already_in",
+                        "value": "#D9A384"
+                    },
+                    {
+                        "label": "contact_hotel",
+                        "value": "#FF00FF"
+                    },
+                    {
+                        "label": "external_company",
+                        "value": "#FFFF00"
+                    },
+                    {
+                        "label": "unknown_occupation",
+                        "value": "#FF0000"
+                    }
+                ]
+            }
+        },
+        {
+            "number": "3 PMR",
+            "type": "PMR",
+            "status": {
+                "label": "personnel",
+                "color": [
+                    {
+                        "label": "personnel",
+                        "value": "#F4CCCC"
+                    },
+                    {
+                        "label": "late_checkout",
+                        "value": "#FF9900"
+                    },
+                    {
+                        "label": "arrival_today",
+                        "value": "#00FF00"
+                    },
+                    {
+                        "label": "already_in",
+                        "value": "#D9A384"
+                    },
+                    {
+                        "label": "contact_hotel",
+                        "value": "#FF00FF"
+                    },
+                    {
+                        "label": "external_company",
+                        "value": "#FFFF00"
+                    },
+                    {
+                        "label": "unknown_occupation",
+                        "value": "#FF0000"
+                    }
+                ]
+            }
+        },
+        {
+            "number": "4",
+            "type": "standard",
+            "status": {
+                "label": "personnel",
+                "color": [
+                    {
+                        "label": "personnel",
+                        "value": "#F4CCCC"
+                    },
+                    {
+                        "label": "late_checkout",
+                        "value": "#FF9900"
+                    },
+                    {
+                        "label": "arrival_today",
+                        "value": "#00FF00"
+                    },
+                    {
+                        "label": "already_in",
+                        "value": "#D9A384"
+                    },
+                    {
+                        "label": "contact_hotel",
+                        "value": "#FF00FF"
+                    },
+                    {
+                        "label": "external_company",
+                        "value": "#FFFF00"
+                    },
+                    {
+                        "label": "unknown_occupation",
+                        "value": "#FF0000"
+                    }
+                ]
+            }
+        },
+        {
+            "number": "5",
+            "type": "standard",
+            "status": {
+                "label": "personnel",
+                "color": [
+                    {
+                        "label": "personnel",
+                        "value": "#F4CCCC"
+                    },
+                    {
+                        "label": "late_checkout",
+                        "value": "#FF9900"
+                    },
+                    {
+                        "label": "arrival_today",
+                        "value": "#00FF00"
+                    },
+                    {
+                        "label": "already_in",
+                        "value": "#D9A384"
+                    },
+                    {
+                        "label": "contact_hotel",
+                        "value": "#FF00FF"
+                    },
+                    {
+                        "label": "external_company",
+                        "value": "#FFFF00"
+                    },
+                    {
+                        "label": "unknown_occupation",
+                        "value": "#FF0000"
+                    }
+                ]
+            }
+        },
+        {
+            "number": "6",
+            "type": "standard",
+            "status": {
+                "label": "personnel",
+                "color": [
+                    {
+                        "label": "personnel",
+                        "value": "#F4CCCC"
+                    },
+                    {
+                        "label": "late_checkout",
+                        "value": "#FF9900"
+                    },
+                    {
+                        "label": "arrival_today",
+                        "value": "#00FF00"
+                    },
+                    {
+                        "label": "already_in",
+                        "value": "#D9A384"
+                    },
+                    {
+                        "label": "contact_hotel",
+                        "value": "#FF00FF"
+                    },
+                    {
+                        "label": "external_company",
+                        "value": "#FFFF00"
+                    },
+                    {
+                        "label": "unknown_occupation",
+                        "value": "#FF0000"
+                    }
+                ]
+            }
+        },
+        {
+            "number": "7",
+            "type": "standard",
+            "status": {
+                "label": "personnel",
+                "color": [
+                    {
+                        "label": "personnel",
+                        "value": "#F4CCCC"
+                    },
+                    {
+                        "label": "late_checkout",
+                        "value": "#FF9900"
+                    },
+                    {
+                        "label": "arrival_today",
+                        "value": "#00FF00"
+                    },
+                    {
+                        "label": "already_in",
+                        "value": "#D9A384"
+                    },
+                    {
+                        "label": "contact_hotel",
+                        "value": "#FF00FF"
+                    },
+                    {
+                        "label": "external_company",
+                        "value": "#FFFF00"
+                    },
+                    {
+                        "label": "unknown_occupation",
+                        "value": "#FF0000"
+                    }
+                ]
+            }
+        },
+        {
+            "number": "8",
+            "type": "standard",
+            "status": {
+                "label": "personnel",
+                "color": [
+                    {
+                        "label": "personnel",
+                        "value": "#F4CCCC"
+                    },
+                    {
+                        "label": "late_checkout",
+                        "value": "#FF9900"
+                    },
+                    {
+                        "label": "arrival_today",
+                        "value": "#00FF00"
+                    },
+                    {
+                        "label": "already_in",
+                        "value": "#D9A384"
+                    },
+                    {
+                        "label": "contact_hotel",
+                        "value": "#FF00FF"
+                    },
+                    {
+                        "label": "external_company",
+                        "value": "#FFFF00"
+                    },
+                    {
+                        "label": "unknown_occupation",
+                        "value": "#FF0000"
+                    }
+                ]
+            }
+        },
+        {
+            "number": "9 PMR",
+            "type": "PMR",
+            "status": {
+                "label": "personnel",
+                "color": [
+                    {
+                        "label": "personnel",
+                        "value": "#F4CCCC"
+                    },
+                    {
+                        "label": "late_checkout",
+                        "value": "#FF9900"
+                    },
+                    {
+                        "label": "arrival_today",
+                        "value": "#00FF00"
+                    },
+                    {
+                        "label": "already_in",
+                        "value": "#D9A384"
+                    },
+                    {
+                        "label": "contact_hotel",
+                        "value": "#FF00FF"
+                    },
+                    {
+                        "label": "external_company",
+                        "value": "#FFFF00"
+                    },
+                    {
+                        "label": "unknown_occupation",
+                        "value": "#FF0000"
+                    }
+                ]
+            }
+        },
+        {
+            "number": "10",
+            "type": "standard",
+            "status": {
+                "label": "personnel",
+                "color": [
+                    {
+                        "label": "personnel",
+                        "value": "#F4CCCC"
+                    },
+                    {
+                        "label": "late_checkout",
+                        "value": "#FF9900"
+                    },
+                    {
+                        "label": "arrival_today",
+                        "value": "#00FF00"
+                    },
+                    {
+                        "label": "already_in",
+                        "value": "#D9A384"
+                    },
+                    {
+                        "label": "contact_hotel",
+                        "value": "#FF00FF"
+                    },
+                    {
+                        "label": "external_company",
+                        "value": "#FFFF00"
+                    },
+                    {
+                        "label": "unknown_occupation",
+                        "value": "#FF0000"
+                    }
+                ]
+            }
+        },
+        {
+            "number": "11",
+            "type": "standard",
+            "status": {
+                "label": "personnel",
+                "color": [
+                    {
+                        "label": "personnel",
+                        "value": "#F4CCCC"
+                    },
+                    {
+                        "label": "late_checkout",
+                        "value": "#FF9900"
+                    },
+                    {
+                        "label": "arrival_today",
+                        "value": "#00FF00"
+                    },
+                    {
+                        "label": "already_in",
+                        "value": "#D9A384"
+                    },
+                    {
+                        "label": "contact_hotel",
+                        "value": "#FF00FF"
+                    },
+                    {
+                        "label": "external_company",
+                        "value": "#FFFF00"
+                    },
+                    {
+                        "label": "unknown_occupation",
+                        "value": "#FF0000"
+                    }
+                ]
+            }
+        },
+        {
+            "number": "12",
+            "type": "standard",
+            "status": {
+                "label": "personnel",
+                "color": [
+                    {
+                        "label": "personnel",
+                        "value": "#F4CCCC"
+                    },
+                    {
+                        "label": "late_checkout",
+                        "value": "#FF9900"
+                    },
+                    {
+                        "label": "arrival_today",
+                        "value": "#00FF00"
+                    },
+                    {
+                        "label": "already_in",
+                        "value": "#D9A384"
+                    },
+                    {
+                        "label": "contact_hotel",
+                        "value": "#FF00FF"
+                    },
+                    {
+                        "label": "external_company",
+                        "value": "#FFFF00"
+                    },
+                    {
+                        "label": "unknown_occupation",
+                        "value": "#FF0000"
+                    }
+                ]
+            }
+        },
+        {
+            "number": "13",
+            "type": "standard",
+            "status": {
+                "label": "personnel",
+                "color": [
+                    {
+                        "label": "personnel",
+                        "value": "#F4CCCC"
+                    },
+                    {
+                        "label": "late_checkout",
+                        "value": "#FF9900"
+                    },
+                    {
+                        "label": "arrival_today",
+                        "value": "#00FF00"
+                    },
+                    {
+                        "label": "already_in",
+                        "value": "#D9A384"
+                    },
+                    {
+                        "label": "contact_hotel",
+                        "value": "#FF00FF"
+                    },
+                    {
+                        "label": "external_company",
+                        "value": "#FFFF00"
+                    },
+                    {
+                        "label": "unknown_occupation",
+                        "value": "#FF0000"
+                    }
+                ]
+            }
+        },
+        {
+            "number": "14",
+            "type": "standard",
+            "status": {
+                "label": "personnel",
+                "color": [
+                    {
+                        "label": "personnel",
+                        "value": "#F4CCCC"
+                    },
+                    {
+                        "label": "late_checkout",
+                        "value": "#FF9900"
+                    },
+                    {
+                        "label": "arrival_today",
+                        "value": "#00FF00"
+                    },
+                    {
+                        "label": "already_in",
+                        "value": "#D9A384"
+                    },
+                    {
+                        "label": "contact_hotel",
+                        "value": "#FF00FF"
+                    },
+                    {
+                        "label": "external_company",
+                        "value": "#FFFF00"
+                    },
+                    {
+                        "label": "unknown_occupation",
+                        "value": "#FF0000"
+                    }
+                ]
+            }
+        },
+        {
+            "number": "15",
+            "type": "standard",
+            "status": {
+                "label": "personnel",
+                "color": [
+                    {
+                        "label": "personnel",
+                        "value": "#F4CCCC"
+                    },
+                    {
+                        "label": "late_checkout",
+                        "value": "#FF9900"
+                    },
+                    {
+                        "label": "arrival_today",
+                        "value": "#00FF00"
+                    },
+                    {
+                        "label": "already_in",
+                        "value": "#D9A384"
+                    },
+                    {
+                        "label": "contact_hotel",
+                        "value": "#FF00FF"
+                    },
+                    {
+                        "label": "external_company",
+                        "value": "#FFFF00"
+                    },
+                    {
+                        "label": "unknown_occupation",
+                        "value": "#FF0000"
+                    }
+                ]
+            }
+        },
+        {
+            "number": "16",
+            "type": "standard",
+            "status": {
+                "label": "personnel",
+                "color": [
+                    {
+                        "label": "personnel",
+                        "value": "#F4CCCC"
+                    },
+                    {
+                        "label": "late_checkout",
+                        "value": "#FF9900"
+                    },
+                    {
+                        "label": "arrival_today",
+                        "value": "#00FF00"
+                    },
+                    {
+                        "label": "already_in",
+                        "value": "#D9A384"
+                    },
+                    {
+                        "label": "contact_hotel",
+                        "value": "#FF00FF"
+                    },
+                    {
+                        "label": "external_company",
+                        "value": "#FFFF00"
+                    },
+                    {
+                        "label": "unknown_occupation",
+                        "value": "#FF0000"
+                    }
+                ]
+            }
+        },
+        {
+            "number": "17",
+            "type": "standard",
+            "status": {
+                "label": "personnel",
+                "color": [
+                    {
+                        "label": "personnel",
+                        "value": "#F4CCCC"
+                    },
+                    {
+                        "label": "late_checkout",
+                        "value": "#FF9900"
+                    },
+                    {
+                        "label": "arrival_today",
+                        "value": "#00FF00"
+                    },
+                    {
+                        "label": "already_in",
+                        "value": "#D9A384"
+                    },
+                    {
+                        "label": "contact_hotel",
+                        "value": "#FF00FF"
+                    },
+                    {
+                        "label": "external_company",
+                        "value": "#FFFF00"
+                    },
+                    {
+                        "label": "unknown_occupation",
+                        "value": "#FF0000"
+                    }
+                ]
+            }
+        },
+        {
+            "number": "18",
+            "type": "standard",
+            "status": {
+                "label": "personnel",
+                "color": [
+                    {
+                        "label": "personnel",
+                        "value": "#F4CCCC"
+                    },
+                    {
+                        "label": "late_checkout",
+                        "value": "#FF9900"
+                    },
+                    {
+                        "label": "arrival_today",
+                        "value": "#00FF00"
+                    },
+                    {
+                        "label": "already_in",
+                        "value": "#D9A384"
+                    },
+                    {
+                        "label": "contact_hotel",
+                        "value": "#FF00FF"
+                    },
+                    {
+                        "label": "external_company",
+                        "value": "#FFFF00"
+                    },
+                    {
+                        "label": "unknown_occupation",
+                        "value": "#FF0000"
+                    }
+                ]
+            }
+        },
+        {
+            "number": "19",
+            "type": "standard",
+            "status": {
+                "label": "personnel",
+                "color": [
+                    {
+                        "label": "personnel",
+                        "value": "#F4CCCC"
+                    },
+                    {
+                        "label": "late_checkout",
+                        "value": "#FF9900"
+                    },
+                    {
+                        "label": "arrival_today",
+                        "value": "#00FF00"
+                    },
+                    {
+                        "label": "already_in",
+                        "value": "#D9A384"
+                    },
+                    {
+                        "label": "contact_hotel",
+                        "value": "#FF00FF"
+                    },
+                    {
+                        "label": "external_company",
+                        "value": "#FFFF00"
+                    },
+                    {
+                        "label": "unknown_occupation",
+                        "value": "#FF0000"
+                    }
+                ]
+            }
+        },
+        {
+            "number": "20",
+            "type": "standard",
+            "status": {
+                "label": "personnel",
+                "color": [
+                    {
+                        "label": "personnel",
+                        "value": "#F4CCCC"
+                    },
+                    {
+                        "label": "late_checkout",
+                        "value": "#FF9900"
+                    },
+                    {
+                        "label": "arrival_today",
+                        "value": "#00FF00"
+                    },
+                    {
+                        "label": "already_in",
+                        "value": "#D9A384"
+                    },
+                    {
+                        "label": "contact_hotel",
+                        "value": "#FF00FF"
+                    },
+                    {
+                        "label": "external_company",
+                        "value": "#FFFF00"
+                    },
+                    {
+                        "label": "unknown_occupation",
+                        "value": "#FF0000"
+                    }
+                ]
+            }
+        },
+        {
+            "number": "21",
+            "type": "standard",
+            "status": {
+                "label": "personnel",
+                "color": [
+                    {
+                        "label": "personnel",
+                        "value": "#F4CCCC"
+                    },
+                    {
+                        "label": "late_checkout",
+                        "value": "#FF9900"
+                    },
+                    {
+                        "label": "arrival_today",
+                        "value": "#00FF00"
+                    },
+                    {
+                        "label": "already_in",
+                        "value": "#D9A384"
+                    },
+                    {
+                        "label": "contact_hotel",
+                        "value": "#FF00FF"
+                    },
+                    {
+                        "label": "external_company",
+                        "value": "#FFFF00"
+                    },
+                    {
+                        "label": "unknown_occupation",
+                        "value": "#FF0000"
+                    }
+                ]
+            }
+        },
+        {
+            "number": "22",
+            "type": "standard",
+            "status": {
+                "label": "personnel",
+                "color": [
+                    {
+                        "label": "personnel",
+                        "value": "#F4CCCC"
+                    },
+                    {
+                        "label": "late_checkout",
+                        "value": "#FF9900"
+                    },
+                    {
+                        "label": "arrival_today",
+                        "value": "#00FF00"
+                    },
+                    {
+                        "label": "already_in",
+                        "value": "#D9A384"
+                    },
+                    {
+                        "label": "contact_hotel",
+                        "value": "#FF00FF"
+                    },
+                    {
+                        "label": "external_company",
+                        "value": "#FFFF00"
+                    },
+                    {
+                        "label": "unknown_occupation",
+                        "value": "#FF0000"
+                    }
+                ]
+            }
+        },
+        {
+            "number": "23 PMR",
+            "type": "PMR",
+            "status": {
+                "label": "personnel",
+                "color": [
+                    {
+                        "label": "personnel",
+                        "value": "#F4CCCC"
+                    },
+                    {
+                        "label": "late_checkout",
+                        "value": "#FF9900"
+                    },
+                    {
+                        "label": "arrival_today",
+                        "value": "#00FF00"
+                    },
+                    {
+                        "label": "already_in",
+                        "value": "#D9A384"
+                    },
+                    {
+                        "label": "contact_hotel",
+                        "value": "#FF00FF"
+                    },
+                    {
+                        "label": "external_company",
+                        "value": "#FFFF00"
+                    },
+                    {
+                        "label": "unknown_occupation",
+                        "value": "#FF0000"
+                    }
+                ]
+            }
+        }
+    ],
+    "Seytour": [
+        {
+            "number": "1",
+            "type": "standard",
+            "status": {
+                "label": "personnel",
+                "color": [
+                    {
+                        "label": "personnel",
+                        "value": "#F4CCCC"
+                    },
+                    {
+                        "label": "late_checkout",
+                        "value": "#FF9900"
+                    },
+                    {
+                        "label": "arrival_today",
+                        "value": "#00FF00"
+                    },
+                    {
+                        "label": "already_in",
+                        "value": "#D9A384"
+                    },
+                    {
+                        "label": "contact_hotel",
+                        "value": "#FF00FF"
+                    },
+                    {
+                        "label": "external_company",
+                        "value": "#FFFF00"
+                    },
+                    {
+                        "label": "unknown_occupation",
+                        "value": "#FF0000"
+                    }
+                ]
+            }
+        },
+        {
+            "number": "2",
+            "type": "standard",
+            "status": {
+                "label": "personnel",
+                "color": [
+                    {
+                        "label": "personnel",
+                        "value": "#F4CCCC"
+                    },
+                    {
+                        "label": "late_checkout",
+                        "value": "#FF9900"
+                    },
+                    {
+                        "label": "arrival_today",
+                        "value": "#00FF00"
+                    },
+                    {
+                        "label": "already_in",
+                        "value": "#D9A384"
+                    },
+                    {
+                        "label": "contact_hotel",
+                        "value": "#FF00FF"
+                    },
+                    {
+                        "label": "external_company",
+                        "value": "#FFFF00"
+                    },
+                    {
+                        "label": "unknown_occupation",
+                        "value": "#FF0000"
+                    }
+                ]
+            }
+        },
+        {
+            "number": "3",
+            "type": "standard",
+            "status": {
+                "label": "personnel",
+                "color": [
+                    {
+                        "label": "personnel",
+                        "value": "#F4CCCC"
+                    },
+                    {
+                        "label": "late_checkout",
+                        "value": "#FF9900"
+                    },
+                    {
+                        "label": "arrival_today",
+                        "value": "#00FF00"
+                    },
+                    {
+                        "label": "already_in",
+                        "value": "#D9A384"
+                    },
+                    {
+                        "label": "contact_hotel",
+                        "value": "#FF00FF"
+                    },
+                    {
+                        "label": "external_company",
+                        "value": "#FFFF00"
+                    },
+                    {
+                        "label": "unknown_occupation",
+                        "value": "#FF0000"
+                    }
+                ]
+            }
+        },
+        {
+            "number": "4",
+            "type": "standard",
+            "status": {
+                "label": "personnel",
+                "color": [
+                    {
+                        "label": "personnel",
+                        "value": "#F4CCCC"
+                    },
+                    {
+                        "label": "late_checkout",
+                        "value": "#FF9900"
+                    },
+                    {
+                        "label": "arrival_today",
+                        "value": "#00FF00"
+                    },
+                    {
+                        "label": "already_in",
+                        "value": "#D9A384"
+                    },
+                    {
+                        "label": "contact_hotel",
+                        "value": "#FF00FF"
+                    },
+                    {
+                        "label": "external_company",
+                        "value": "#FFFF00"
+                    },
+                    {
+                        "label": "unknown_occupation",
+                        "value": "#FF0000"
+                    }
+                ]
+            }
+        },
+        {
+            "number": "5",
+            "type": "standard",
+            "status": {
+                "label": "personnel",
+                "color": [
+                    {
+                        "label": "personnel",
+                        "value": "#F4CCCC"
+                    },
+                    {
+                        "label": "late_checkout",
+                        "value": "#FF9900"
+                    },
+                    {
+                        "label": "arrival_today",
+                        "value": "#00FF00"
+                    },
+                    {
+                        "label": "already_in",
+                        "value": "#D9A384"
+                    },
+                    {
+                        "label": "contact_hotel",
+                        "value": "#FF00FF"
+                    },
+                    {
+                        "label": "external_company",
+                        "value": "#FFFF00"
+                    },
+                    {
+                        "label": "unknown_occupation",
+                        "value": "#FF0000"
+                    }
+                ]
+            }
+        },
+        {
+            "number": "6",
+            "type": "standard",
+            "status": {
+                "label": "personnel",
+                "color": [
+                    {
+                        "label": "personnel",
+                        "value": "#F4CCCC"
+                    },
+                    {
+                        "label": "late_checkout",
+                        "value": "#FF9900"
+                    },
+                    {
+                        "label": "arrival_today",
+                        "value": "#00FF00"
+                    },
+                    {
+                        "label": "already_in",
+                        "value": "#D9A384"
+                    },
+                    {
+                        "label": "contact_hotel",
+                        "value": "#FF00FF"
+                    },
+                    {
+                        "label": "external_company",
+                        "value": "#FFFF00"
+                    },
+                    {
+                        "label": "unknown_occupation",
+                        "value": "#FF0000"
+                    }
+                ]
+            }
+        },
+        {
+            "number": "7",
+            "type": "standard",
+            "status": {
+                "label": "personnel",
+                "color": [
+                    {
+                        "label": "personnel",
+                        "value": "#F4CCCC"
+                    },
+                    {
+                        "label": "late_checkout",
+                        "value": "#FF9900"
+                    },
+                    {
+                        "label": "arrival_today",
+                        "value": "#00FF00"
+                    },
+                    {
+                        "label": "already_in",
+                        "value": "#D9A384"
+                    },
+                    {
+                        "label": "contact_hotel",
+                        "value": "#FF00FF"
+                    },
+                    {
+                        "label": "external_company",
+                        "value": "#FFFF00"
+                    },
+                    {
+                        "label": "unknown_occupation",
+                        "value": "#FF0000"
+                    }
+                ]
+            }
+        },
+        {
+            "number": "8",
+            "type": "standard",
+            "status": {
+                "label": "personnel",
+                "color": [
+                    {
+                        "label": "personnel",
+                        "value": "#F4CCCC"
+                    },
+                    {
+                        "label": "late_checkout",
+                        "value": "#FF9900"
+                    },
+                    {
+                        "label": "arrival_today",
+                        "value": "#00FF00"
+                    },
+                    {
+                        "label": "already_in",
+                        "value": "#D9A384"
+                    },
+                    {
+                        "label": "contact_hotel",
+                        "value": "#FF00FF"
+                    },
+                    {
+                        "label": "external_company",
+                        "value": "#FFFF00"
+                    },
+                    {
+                        "label": "unknown_occupation",
+                        "value": "#FF0000"
+                    }
+                ]
+            }
+        },
+        {
+            "number": "9 (2)",
+            "type": "standard",
+            "status": {
+                "label": "personnel",
+                "color": [
+                    {
+                        "label": "personnel",
+                        "value": "#F4CCCC"
+                    },
+                    {
+                        "label": "late_checkout",
+                        "value": "#FF9900"
+                    },
+                    {
+                        "label": "arrival_today",
+                        "value": "#00FF00"
+                    },
+                    {
+                        "label": "already_in",
+                        "value": "#D9A384"
+                    },
+                    {
+                        "label": "contact_hotel",
+                        "value": "#FF00FF"
+                    },
+                    {
+                        "label": "external_company",
+                        "value": "#FFFF00"
+                    },
+                    {
+                        "label": "unknown_occupation",
+                        "value": "#FF0000"
+                    }
+                ]
+            }
+        },
+        {
+            "number": "10",
+            "type": "standard",
+            "status": {
+                "label": "personnel",
+                "color": [
+                    {
+                        "label": "personnel",
+                        "value": "#F4CCCC"
+                    },
+                    {
+                        "label": "late_checkout",
+                        "value": "#FF9900"
+                    },
+                    {
+                        "label": "arrival_today",
+                        "value": "#00FF00"
+                    },
+                    {
+                        "label": "already_in",
+                        "value": "#D9A384"
+                    },
+                    {
+                        "label": "contact_hotel",
+                        "value": "#FF00FF"
+                    },
+                    {
+                        "label": "external_company",
+                        "value": "#FFFF00"
+                    },
+                    {
+                        "label": "unknown_occupation",
+                        "value": "#FF0000"
+                    }
+                ]
+            }
+        },
+        {
+            "number": "11",
+            "type": "standard",
+            "status": {
+                "label": "personnel",
+                "color": [
+                    {
+                        "label": "personnel",
+                        "value": "#F4CCCC"
+                    },
+                    {
+                        "label": "late_checkout",
+                        "value": "#FF9900"
+                    },
+                    {
+                        "label": "arrival_today",
+                        "value": "#00FF00"
+                    },
+                    {
+                        "label": "already_in",
+                        "value": "#D9A384"
+                    },
+                    {
+                        "label": "contact_hotel",
+                        "value": "#FF00FF"
+                    },
+                    {
+                        "label": "external_company",
+                        "value": "#FFFF00"
+                    },
+                    {
+                        "label": "unknown_occupation",
+                        "value": "#FF0000"
+                    }
+                ]
+            }
+        },
+        {
+            "number": "12",
+            "type": "standard",
+            "status": {
+                "label": "personnel",
+                "color": [
+                    {
+                        "label": "personnel",
+                        "value": "#F4CCCC"
+                    },
+                    {
+                        "label": "late_checkout",
+                        "value": "#FF9900"
+                    },
+                    {
+                        "label": "arrival_today",
+                        "value": "#00FF00"
+                    },
+                    {
+                        "label": "already_in",
+                        "value": "#D9A384"
+                    },
+                    {
+                        "label": "contact_hotel",
+                        "value": "#FF00FF"
+                    },
+                    {
+                        "label": "external_company",
+                        "value": "#FFFF00"
+                    },
+                    {
+                        "label": "unknown_occupation",
+                        "value": "#FF0000"
+                    }
+                ]
+            }
+        }
+    ]
+}
