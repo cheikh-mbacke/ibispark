@@ -1,0 +1,586 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EasyPark Dashboard</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="assets/css/main.css">
+    <link rel="stylesheet" href="assets/css/components/sidebar.css">
+    <link rel="stylesheet" href="assets/css/components/header.css">
+    <link rel="stylesheet" href="assets/css/components/cards.css">
+    <link rel="stylesheet" href="assets/css/components/tables.css">
+    <link rel="stylesheet" href="assets/css/components/forms.css">
+    <link rel="stylesheet" href="assets/css/pages/dashboard.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <h1 class="logo">EasyPark</h1>
+                <button id="sidebar-toggle" class="sidebar-toggle">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+            <nav class="sidebar-nav">
+                <ul>
+                    <li class="active">
+                        <a href="#" data-page="dashboard">
+                            <i class="fas fa-tachometer-alt"></i>
+                            <span>Tableau de bord</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" data-page="hotels">
+                            <i class="fas fa-hotel"></i>
+                            <span>Hôtels</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" data-page="parkings">
+                            <i class="fas fa-parking"></i>
+                            <span>Parkings</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" data-page="spots">
+                            <i class="fas fa-car"></i>
+                            <span>Emplacements</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" data-page="status">
+                            <i class="fas fa-tags"></i>
+                            <span>Statuts</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <header class="header">
+                <div class="header-title">
+                    <h2 id="page-title">Tableau de bord</h2>
+                </div>
+                <div class="header-actions">
+                    <div class="search-box">
+                        <input type="text" placeholder="Rechercher...">
+                        <i class="fas fa-search"></i>
+                    </div>
+                    <div class="notifications">
+                        <i class="fas fa-bell"></i>
+                        <span class="badge">3</span>
+                    </div>
+                    <div class="user-profile">
+                        <img src="https://via.placeholder.com/40" alt="User">
+                        <span>Admin</span>
+                    </div>
+                </div>
+            </header>
+
+            <!-- Page Content -->
+            <div class="page-content">
+                <!-- Dashboard Page (active by default) -->
+                <div id="dashboard-page" class="page active">
+                    <div class="stats-container">
+                        <div class="stat-card">
+                            <div class="stat-icon hotels-icon">
+                                <i class="fas fa-hotel"></i>
+                            </div>
+                            <div class="stat-details">
+                                <h3>Hôtels</h3>
+                                <p class="stat-value" id="hotels-count">Chargement...</p>
+                                <p class="stat-description">Hôtels enregistrés</p>
+                            </div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-icon parkings-icon">
+                                <i class="fas fa-parking"></i>
+                            </div>
+                            <div class="stat-details">
+                                <h3>Parkings</h3>
+                                <p class="stat-value" id="parkings-count">Chargement...</p>
+                                <p class="stat-description">Parkings disponibles</p>
+                            </div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-icon spots-icon">
+                                <i class="fas fa-car"></i>
+                            </div>
+                            <div class="stat-details">
+                                <h3>Emplacements</h3>
+                                <p class="stat-value" id="spots-count">Chargement...</p>
+                                <p class="stat-description">Places de parking</p>
+                            </div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-icon occupancy-icon">
+                                <i class="fas fa-chart-pie"></i>
+                            </div>
+                            <div class="stat-details">
+                                <h3>Occupation</h3>
+                                <p class="stat-value" id="occupancy-rate">Chargement...</p>
+                                <p class="stat-description">Taux d'occupation</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="dashboard-content">
+                        <div class="recent-activity">
+                            <div class="card">
+                                <div class="card-header">
+                                    <h3>Activité récente</h3>
+                                </div>
+                                <div class="card-body">
+                                    <ul class="activity-list" id="recent-activity-list">
+                                        <li class="loading-item">Chargement des activités récentes...</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="status-summary">
+                            <div class="card">
+                                <div class="card-header">
+                                    <h3>Répartition des statuts</h3>
+                                </div>
+                                <div class="card-body">
+                                    <div class="status-chart-container" id="status-chart">
+                                        <!-- Le graphique sera injecté ici par JavaScript -->
+                                        <div class="loading-chart">Chargement du graphique...</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Hotels Page -->
+                <div id="hotels-page" class="page">
+                    <div class="page-header">
+                        <h3>Gestion des hôtels</h3>
+                        <button class="btn btn-primary" id="add-hotel-btn">
+                            <i class="fas fa-plus"></i> Ajouter un hôtel
+                        </button>
+                    </div>
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="table-responsive">
+                                <table class="data-table" id="hotels-table">
+                                    <thead>
+                                        <tr>
+                                            <th>ID</th>
+                                            <th>Nom</th>
+                                            <th>Adresse</th>
+                                            <th>Parkings</th>
+                                            <th>Actions</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td colspan="5" class="loading-row">Chargement des hôtels...</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Parkings Page -->
+                <div id="parkings-page" class="page">
+                    <div class="page-header">
+                        <h3>Gestion des parkings</h3>
+                        <button class="btn btn-primary" id="add-parking-btn">
+                            <i class="fas fa-plus"></i> Ajouter un parking
+                        </button>
+                    </div>
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="filters">
+                                <div class="filter-item">
+                                    <label for="hotel-filter">Hôtel</label>
+                                    <select id="hotel-filter">
+                                        <option value="">Tous les hôtels</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="table-responsive">
+                                <table class="data-table" id="parkings-table">
+                                    <thead>
+                                        <tr>
+                                            <th>ID</th>
+                                            <th>Nom</th>
+                                            <th>Hôtel</th>
+                                            <th>Emplacement</th>
+                                            <th>Capacité</th>
+                                            <th>Actions</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td colspan="6" class="loading-row">Chargement des parkings...</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Spots Page -->
+                <div id="spots-page" class="page">
+                    <div class="page-header">
+                        <h3>Gestion des emplacements</h3>
+                        <button class="btn btn-primary" id="add-spot-btn">
+                            <i class="fas fa-plus"></i> Ajouter un emplacement
+                        </button>
+                    </div>
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="filters">
+                                <div class="filter-item">
+                                    <label for="parking-filter">Parking</label>
+                                    <select id="parking-filter">
+                                        <option value="">Tous les parkings</option>
+                                    </select>
+                                </div>
+                                <div class="filter-item">
+                                    <label for="status-filter">Statut</label>
+                                    <select id="status-filter">
+                                        <option value="">Tous les statuts</option>
+                                    </select>
+                                </div>
+                                <div class="filter-item">
+                                    <label for="type-filter">Type</label>
+                                    <select id="type-filter">
+                                        <option value="">Tous les types</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="table-responsive">
+                                <table class="data-table" id="spots-table">
+                                    <thead>
+                                        <tr>
+                                            <th>Numéro</th>
+                                            <th>Type</th>
+                                            <th>Parking</th>
+                                            <th>Étage</th>
+                                            <th>Section</th>
+                                            <th>Statut</th>
+                                            <th>Actions</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td colspan="7" class="loading-row">Chargement des emplacements...</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Status Page -->
+                <div id="status-page" class="page">
+                    <div class="page-header">
+                        <h3>Gestion des statuts</h3>
+                        <button class="btn btn-primary" id="add-status-btn">
+                            <i class="fas fa-plus"></i> Ajouter un statut
+                        </button>
+                    </div>
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="table-responsive">
+                                <table class="data-table" id="status-table">
+                                    <thead>
+                                        <tr>
+                                            <th>ID</th>
+                                            <th>Valeur</th>
+                                            <th>Couleur</th>
+                                            <th>Aperçu</th>
+                                            <th>Actions</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td colspan="5" class="loading-row">Chargement des statuts...</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Modals -->
+    <div class="modal" id="hotel-modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 id="hotel-modal-title">Ajouter un hôtel</h3>
+                <button class="close-modal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <form id="hotel-form">
+                    <input type="hidden" id="hotel-id">
+                    <div class="form-group">
+                        <label for="hotel-name">Nom de l'hôtel</label>
+                        <input type="text" id="hotel-name" name="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="hotel-address">Adresse</label>
+                        <textarea id="hotel-address" name="address" rows="3" required></textarea>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-secondary close-modal">Annuler</button>
+                <button class="btn btn-primary" id="save-hotel-btn">Enregistrer</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Parking Modal -->
+    <div class="modal" id="parking-modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 id="parking-modal-title">Ajouter un parking</h3>
+                <button class="close-modal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <form id="parking-form">
+                    <input type="hidden" id="parking-id">
+                    <div class="form-group">
+                        <label for="parking-hotel">Hôtel</label>
+                        <select id="parking-hotel" name="hotel_id" required>
+                            <option value="">Sélectionner un hôtel</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="parking-name">Nom du parking</label>
+                        <input type="text" id="parking-name" name="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="parking-description">Description</label>
+                        <textarea id="parking-description" name="description" rows="2"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="parking-location">Emplacement</label>
+                        <input type="text" id="parking-location" name="location" placeholder="Ex: Sous-sol, Extérieur...">
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-secondary close-modal">Annuler</button>
+                <button class="btn btn-primary" id="save-parking-btn">Enregistrer</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Spot Modal -->
+    <div class="modal" id="spot-modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 id="spot-modal-title">Ajouter un emplacement</h3>
+                <button class="close-modal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <form id="spot-form">
+                    <input type="hidden" id="spot-id">
+                    <div class="form-tabs">
+                        <div class="tab-header">
+                            <div class="tab-item active" data-tab="general">Général</div>
+                            <div class="tab-item" data-tab="dimensions">Dimensions</div>
+                            <div class="tab-item" data-tab="location">Localisation</div>
+                            <div class="tab-item" data-tab="equipment">Équipement</div>
+                            <div class="tab-item" data-tab="pricing">Tarification</div>
+                        </div>
+                        <div class="tab-content">
+                            <div class="tab-pane active" id="general-tab">
+                                <div class="form-group">
+                                    <label for="spot-parking">Parking</label>
+                                    <select id="spot-parking" name="parking_id" required>
+                                        <option value="">Sélectionner un parking</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="spot-number">Numéro d'emplacement</label>
+                                    <input type="number" id="spot-number" name="number" required min="1">
+                                </div>
+                                <div class="form-group">
+                                    <label for="spot-types">Types d'emplacement</label>
+                                    <div class="checkbox-group" id="spot-types-group">
+                                        <!-- Les types seront ajoutés ici par JavaScript -->
+                                        <div class="loading-checkbox">Chargement des types...</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="tab-pane" id="dimensions-tab">
+                                <div class="form-group">
+                                    <label for="spot-length">Longueur (m)</label>
+                                    <input type="number" id="spot-length" name="length" step="0.01" min="0" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="spot-width">Largeur (m)</label>
+                                    <input type="number" id="spot-width" name="width" step="0.01" min="0" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="spot-height">Hauteur (m)</label>
+                                    <input type="number" id="spot-height" name="height" step="0.01" min="0" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="spot-surface">Surface (m²)</label>
+                                    <input type="number" id="spot-surface" name="surface" step="0.01" min="0" required>
+                                </div>
+                            </div>
+                            <div class="tab-pane" id="location-tab">
+                                <div class="form-group">
+                                    <label for="spot-floor">Étage</label>
+                                    <input type="number" id="spot-floor" name="floor" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="spot-section">Section</label>
+                                    <input type="text" id="spot-section" name="section" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="spot-address">Adresse complète</label>
+                                    <input type="text" id="spot-address" name="address">
+                                </div>
+                            </div>
+                            <div class="tab-pane" id="equipment-tab">
+                                <div class="form-group">
+                                    <div class="checkbox-wrapper">
+                                        <input type="checkbox" id="spot-electric" name="electric_charging">
+                                        <label for="spot-electric">Borne de recharge électrique</label>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="checkbox-wrapper">
+                                        <input type="checkbox" id="spot-camera" name="camera">
+                                        <label for="spot-camera">Caméra de surveillance</label>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="checkbox-wrapper">
+                                        <input type="checkbox" id="spot-sensor" name="sensor">
+                                        <label for="spot-sensor">Capteur de présence</label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="tab-pane" id="pricing-tab">
+                                <div class="form-group">
+                                    <label for="spot-hourly-rate">Tarif horaire (€)</label>
+                                    <input type="number" id="spot-hourly-rate" name="hourly_rate" step="0.01" min="0" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="spot-daily-rate">Tarif journalier (€)</label>
+                                    <input type="number" id="spot-daily-rate" name="daily_rate" step="0.01" min="0" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="spot-monthly-rate">Tarif mensuel (€)</label>
+                                    <input type="number" id="spot-monthly-rate" name="monthly_rate" step="0.01" min="0" required>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-secondary close-modal">Annuler</button>
+                <button class="btn btn-primary" id="save-spot-btn">Enregistrer</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Status Modal -->
+    <div class="modal" id="status-modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 id="status-modal-title">Ajouter un statut</h3>
+                <button class="close-modal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <form id="status-form">
+                    <input type="hidden" id="status-id">
+                    <div class="form-group">
+                        <label for="status-value">Valeur</label>
+                        <input type="text" id="status-value" name="value" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="status-color">Couleur</label>
+                        <input type="color" id="status-color" name="color" required>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-secondary close-modal">Annuler</button>
+                <button class="btn btn-primary" id="save-status-btn">Enregistrer</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Notification System -->
+    <div class="notification-container" id="notification-container"></div>
+
+    <!-- Loading Overlay -->
+    <div class="loading-overlay" id="loading-overlay">
+        <div class="loading-spinner"></div>
+    </div>
+
+    <!-- Confirmation Modal -->
+    <div class="modal" id="confirmation-modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 id="confirmation-title">Confirmation</h3>
+                <button class="close-modal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <p id="confirmation-message">Êtes-vous sûr de vouloir effectuer cette action ?</p>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-secondary close-modal">Annuler</button>
+                <button class="btn btn-danger" id="confirm-action-btn">Confirmer</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/chart.js/3.9.1/chart.min.js"></script>
+    
+    <!-- Configuration -->
+    <script src="assets/js/config.js"></script>
+    
+    <!-- API Modules -->
+    <script src="assets/js/api/api.js"></script>
+    <script src="assets/js/api/hotels.js"></script>
+    <script src="assets/js/api/parkings.js"></script>
+    <script src="assets/js/api/spots.js"></script>
+    <script src="assets/js/api/status.js"></script>
+    
+    <!-- Utils -->
+    <script src="assets/js/utils/formatter.js"></script>
+    <script src="assets/js/utils/validator.js"></script>
+    <script src="assets/js/utils/storage.js"></script>
+    
+    <!-- Components -->
+    <script src="assets/js/components/sidebar.js"></script>
+    <script src="assets/js/components/header.js"></script>
+    <script src="assets/js/components/notification.js"></script>
+    <script src="assets/js/components/modal.js"></script>
+    
+    <!-- Pages -->
+    <script src="assets/js/pages/dashboard.js"></script>
+    <script src="assets/js/pages/hotels.js"></script>
+    <script src="assets/js/pages/parkings.js"></script>
+    <script src="assets/js/pages/spots.js"></script>
+    
+    <!-- Main App -->
+    <script src="assets/js/app.js" type="module"></script>
+</body>
+</html>

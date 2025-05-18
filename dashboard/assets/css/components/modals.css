@@ -1,0 +1,230 @@
+/* modals.css - Styles pour les fenêtres modales */
+
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal.active {
+    display: flex;
+}
+
+.modal-content {
+    background-color: white;
+    border-radius: var(--border-radius);
+    width: 500px;
+    max-width: 90%;
+    max-height: 90vh;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    animation: modalFadeIn 0.3s;
+}
+
+@keyframes modalFadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.modal-header {
+    padding: 15px 20px;
+    border-bottom: 1px solid var(--border-color);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.modal-header h3 {
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--primary-color);
+}
+
+.close-modal {
+    background: none;
+    border: none;
+    font-size: 24px;
+    color: var(--text-secondary);
+    cursor: pointer;
+    transition: color 0.3s;
+}
+
+.close-modal:hover {
+    color: var(--danger-color);
+}
+
+.modal-body {
+    padding: 20px;
+    overflow-y: auto;
+    max-height: calc(90vh - 130px); /* Adjust based on header and footer height */
+}
+
+.modal-footer {
+    padding: 15px 20px;
+    border-top: 1px solid var(--border-color);
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+}
+
+/* Notification System */
+.notification-container {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 9999;
+    width: 300px;
+    max-width: 90%;
+}
+
+.notification {
+    padding: 15px;
+    border-radius: var(--border-radius);
+    margin-bottom: 10px;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+    display: flex;
+    align-items: center;
+    animation: notificationFadeIn 0.3s;
+    position: relative;
+}
+
+@keyframes notificationFadeIn {
+    from {
+        opacity: 0;
+        transform: translateX(50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+.notification.success {
+    background-color: #e8f5e9;
+    border-left: 4px solid var(--success-color);
+}
+
+.notification.error {
+    background-color: #ffebee;
+    border-left: 4px solid var(--danger-color);
+}
+
+.notification.warning {
+    background-color: #fff8e1;
+    border-left: 4px solid var(--warning-color);
+}
+
+.notification.info {
+    background-color: #e3f2fd;
+    border-left: 4px solid var(--info-color);
+}
+
+.notification-icon {
+    width: 24px;
+    height: 24px;
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 15px;
+}
+
+.notification.success .notification-icon {
+    color: var(--success-color);
+}
+
+.notification.error .notification-icon {
+    color: var(--danger-color);
+}
+
+.notification.warning .notification-icon {
+    color: var(--warning-color);
+}
+
+.notification.info .notification-icon {
+    color: var(--info-color);
+}
+
+.notification-content {
+    flex: 1;
+}
+
+.notification-title {
+    font-weight: 600;
+    margin-bottom: 3px;
+}
+
+.notification-message {
+    font-size: 13px;
+    color: var(--text-secondary);
+}
+
+.notification-close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: none;
+    border: none;
+    font-size: 12px;
+    color: var(--text-secondary);
+    cursor: pointer;
+}
+
+.notification-close:hover {
+    color: var(--text-primary);
+}
+
+.notification-progress {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 3px;
+    background-color: rgba(0, 0, 0, 0.1);
+    width: 100%;
+}
+
+.notification-progress-bar {
+    height: 100%;
+    width: 100%;
+    animation: progressShrink 5s linear forwards;
+}
+
+.notification.success .notification-progress-bar {
+    background-color: var(--success-color);
+}
+
+.notification.error .notification-progress-bar {
+    background-color: var(--danger-color);
+}
+
+.notification.warning .notification-progress-bar {
+    background-color: var(--warning-color);
+}
+
+.notification.info .notification-progress-bar {
+    background-color: var(--info-color);
+}
+
+@keyframes progressShrink {
+    from {
+        width: 100%;
+    }
+    to {
+        width: 0%;
+    }
+}

@@ -1,0 +1,107 @@
+/* header.css - Styles pour l'en-tête */
+
+.header {
+    height: var(--header-height);
+    background-color: white;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 20px;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+
+.header-title h2 {
+    font-size: 20px;
+    font-weight: 600;
+    color: var(--primary-color);
+}
+
+.header-actions {
+    display: flex;
+    align-items: center;
+}
+
+.search-box {
+    position: relative;
+    margin-right: 20px;
+}
+
+.search-box input {
+    padding: 8px 10px 8px 35px;
+    border: 1px solid var(--border-color);
+    border-radius: 20px;
+    font-size: 14px;
+    width: 220px;
+    transition: all 0.3s;
+}
+
+.search-box input:focus {
+    width: 250px;
+    outline: none;
+    border-color: var(--primary-light);
+}
+
+.search-box i {
+    position: absolute;
+    left: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--text-secondary);
+}
+
+.notifications {
+    position: relative;
+    margin-right: 20px;
+    cursor: pointer;
+}
+
+.notifications i {
+    font-size: 18px;
+    color: var(--text-secondary);
+}
+
+.badge {
+    position: absolute;
+    top: -5px;
+    right: -5px;
+    background-color: var(--danger-color);
+    color: white;
+    border-radius: 50%;
+    width: 18px;
+    height: 18px;
+    font-size: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.user-profile {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+.user-profile img {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+.user-profile span {
+    font-weight: 500;
+}
+
+/* Responsive Header */
+@media screen and (max-width: 768px) {
+    .search-box {
+        display: none;
+    }
+    
+    .user-profile span {
+        display: none;
+    }
+}

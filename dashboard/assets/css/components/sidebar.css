@@ -1,0 +1,117 @@
+/* sidebar.css - Styles pour la barre latérale */
+
+.sidebar {
+    width: var(--sidebar-width);
+    height: 100vh;
+    background-color: var(--primary-dark);
+    color: white;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 100;
+    transition: width var(--transition-speed);
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+}
+
+.sidebar-header {
+    height: var(--header-height);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 20px;
+    background-color: var(--primary-color);
+}
+
+.logo {
+    font-size: 22px;
+    font-weight: bold;
+}
+
+.sidebar-toggle {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 20px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.sidebar-nav {
+    padding: 20px 0;
+    flex: 1;
+    overflow-y: auto;
+}
+
+.sidebar-nav ul li {
+    margin-bottom: 5px;
+}
+
+.sidebar-nav ul li a {
+    display: flex;
+    align-items: center;
+    padding: 12px 20px;
+    color: rgba(255, 255, 255, 0.7);
+    transition: all 0.3s;
+}
+
+.sidebar-nav ul li a:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    color: white;
+}
+
+.sidebar-nav ul li.active a {
+    background-color: var(--primary-color);
+    color: white;
+    border-left: 4px solid var(--secondary-color);
+}
+
+.sidebar-nav ul li a i {
+    margin-right: 15px;
+    width: 20px;
+    text-align: center;
+}
+
+/* Sidebar collapsed state */
+.sidebar-collapsed .sidebar {
+    width: var(--sidebar-collapsed-width);
+}
+
+.sidebar-collapsed .sidebar-nav ul li a span {
+    display: none;
+}
+
+.sidebar-collapsed .logo {
+    display: none;
+}
+
+/* Responsive Sidebar */
+@media screen and (max-width: 768px) {
+    .sidebar {
+        width: var(--sidebar-collapsed-width);
+    }
+    
+    .sidebar .logo {
+        display: none;
+    }
+    
+    .sidebar-nav ul li a span {
+        display: none;
+    }
+    
+    .sidebar.expanded {
+        width: var(--sidebar-width);
+        z-index: 1000;
+    }
+    
+    .sidebar.expanded .logo {
+        display: block;
+    }
+    
+    .sidebar.expanded .sidebar-nav ul li a span {
+        display: inline;
+    }
+}
