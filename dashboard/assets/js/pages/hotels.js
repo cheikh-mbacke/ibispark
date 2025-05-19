@@ -249,17 +249,38 @@ const Hotels = (function () {
         );
       }
 
+      // Vérifier si la page actuelle est déjà la page des hôtels
+      const currentPage = document.querySelector(".page.active");
+      const isHotelsPage = currentPage && currentPage.id === "hotels-page";
+
       // Fermeture de la modale
       Modal.close("hotel-modal");
 
-      // Rechargement de la liste des hôtels
-      loadHotels();
+      // Si nous sommes déjà sur la page hôtels, simplement recharger les données
+      if (isHotelsPage) {
+        loadHotels();
+      } else {
+        // Sinon, activer la page des hôtels tout en évitant les rechargements multiples
+        // Stockage temporaire pour éviter l'effet de bord lors du changement de page
+        const storedHotels = [...hotels];
+
+        // Activer la page des hôtels
+        Sidebar.activatePage("hotels");
+
+        // Restaurer les données stockées si elles existent déjà
+        hotels = storedHotels;
+
+        // Afficher les hôtels
+        renderHotelsTable(hotels);
+
+        // Puis recharger silencieusement les données en arrière-plan
+        loadHotels();
+      }
     } catch (error) {
       console.error("Erreur lors de l'enregistrement de l'hôtel:", error);
       Notification.error("Erreur", "Impossible d'enregistrer l'hôtel");
     }
   };
-
   /**
    * Affiche une confirmation avant de supprimer un hôtel
    * @param {Number} hotelId - ID de l'hôtel à supprimer

@@ -14,6 +14,34 @@ const Dashboard = (function () {
 
   // Instance Chart.js pour le graphique des statuts
   let statusChartInstance;
+  let chartInitialized = false;
+
+  /**
+   * Vérifie si Chart.js est disponible et attend qu'il soit chargé si nécessaire
+   * @param {Function} callback - Fonction à exécuter quand Chart est disponible
+   */
+  const ensureChartAvailable = (callback) => {
+    if (typeof Chart !== "undefined") {
+      // Chart.js est déjà chargé
+      callback();
+      return;
+    }
+
+    console.log("Chart.js pas encore chargé, attente...");
+
+    // On attend un peu pour laisser le temps à Chart.js de se charger
+    setTimeout(() => {
+      if (typeof Chart !== "undefined") {
+        callback();
+      } else {
+        console.error("Chart.js n'est pas chargé correctement après délai");
+        if (statusChart) {
+          statusChart.innerHTML =
+            '<div class="error-message">Impossible de charger le graphique: Chart.js est indisponible</div>';
+        }
+      }
+    }, 1000); // Attendre 1 seconde
+  };
 
   /**
    * Initialise le tableau de bord
@@ -125,6 +153,12 @@ const Dashboard = (function () {
    */
   const loadStatusChart = async () => {
     try {
+      // Afficher un message de chargement
+      if (statusChart) {
+        statusChart.innerHTML =
+          '<div class="loading-chart">Chargement du graphique... Cela peut prendre quelques instants.</div>';
+      }
+
       // Récupération des statuts disponibles
       const statuses = await StatusAPI.getAllStatuses();
 
@@ -180,14 +214,16 @@ const Dashboard = (function () {
         }
       });
 
-      // Création ou mise à jour du graphique
-      renderStatusChart(chartData);
+      // Création ou mise à jour du graphique avec vérification que Chart est disponible
+      ensureChartAvailable(() => renderStatusChart(chartData));
     } catch (error) {
       console.error(
         "Erreur lors du chargement du graphique de statuts:",
         error
       );
-      throw error;
+      if (statusChart) {
+        statusChart.innerHTML = `<div class="error-message">Erreur: ${error.message}</div>`;
+      }
     }
   };
 
@@ -198,64 +234,79 @@ const Dashboard = (function () {
   const renderStatusChart = (data) => {
     if (!statusChart) return;
 
-    // Nettoyage du conteneur
-    statusChart.innerHTML = "";
-
-    // Si le graphique existe déjà, on le détruit
-    if (statusChartInstance) {
-      statusChartInstance.destroy();
+    // Vérification que Chart est disponible
+    if (typeof Chart === "undefined") {
+      console.error("Chart.js n'est pas chargé correctement");
+      statusChart.innerHTML =
+        '<div class="error-message">Impossible de charger le graphique: Chart.js est indisponible</div>';
+      return;
     }
 
-    // Création d'un canvas pour le graphique
-    const canvas = document.createElement("canvas");
-    canvas.id = "status-chart-canvas";
-    statusChart.appendChild(canvas);
+    try {
+      // Nettoyage du conteneur
+      statusChart.innerHTML = "";
 
-    // Création du graphique avec Chart.js
-    const ctx = canvas.getContext("2d");
-    statusChartInstance = new Chart(ctx, {
-      type: "doughnut",
-      data: {
-        labels: data.labels,
-        datasets: [
-          {
-            data: data.values,
-            backgroundColor: data.colors,
-            borderWidth: 1,
-          },
-        ],
-      },
-      options: {
-        responsive: true,
-        maintainAspectRatio: false,
-        plugins: {
-          legend: {
-            position: "right",
-            labels: {
-              boxWidth: 15,
-              padding: 15,
+      // Si le graphique existe déjà, on le détruit
+      if (statusChartInstance) {
+        statusChartInstance.destroy();
+      }
+
+      // Création d'un canvas pour le graphique
+      const canvas = document.createElement("canvas");
+      canvas.id = "status-chart-canvas";
+      statusChart.appendChild(canvas);
+
+      // Création du graphique avec Chart.js
+      const ctx = canvas.getContext("2d");
+      statusChartInstance = new Chart(ctx, {
+        type: "doughnut",
+        data: {
+          labels: data.labels,
+          datasets: [
+            {
+              data: data.values,
+              backgroundColor: data.colors,
+              borderWidth: 1,
             },
-          },
-          title: {
-            display: false,
-          },
-          tooltip: {
-            callbacks: {
-              label: function (context) {
-                const label = context.label || "";
-                const value = context.raw || 0;
-                const total = context.chart.data.datasets[0].data.reduce(
-                  (a, b) => a + b,
-                  0
-                );
-                const percentage = Math.round((value / total) * 100);
-                return `${label}: ${value} (${percentage}%)`;
+          ],
+        },
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          plugins: {
+            legend: {
+              position: "right",
+              labels: {
+                boxWidth: 15,
+                padding: 15,
+              },
+            },
+            title: {
+              display: false,
+            },
+            tooltip: {
+              callbacks: {
+                label: function (context) {
+                  const label = context.label || "";
+                  const value = context.raw || 0;
+                  const total = context.chart.data.datasets[0].data.reduce(
+                    (a, b) => a + b,
+                    0
+                  );
+                  const percentage = Math.round((value / total) * 100);
+                  return `${label}: ${value} (${percentage}%)`;
+                },
               },
             },
           },
         },
-      },
-    });
+      });
+
+      chartInitialized = true;
+    } catch (error) {
+      console.error("Erreur lors de la création du graphique:", error);
+      statusChart.innerHTML = `<div class="error-message">Erreur lors de la création du graphique: ${error.message}</div>`;
+    }
   };
 
   /**

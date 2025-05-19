@@ -12,6 +12,8 @@ const CONFIG = {
       "Content-Type": "application/json",
       Accept: "application/json",
     },
+    // Active le mode mock pour le développement sans backend
+    MOCK_ENABLED: true,
   },
 
   // Configuration de l'interface

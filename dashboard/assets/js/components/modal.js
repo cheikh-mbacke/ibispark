@@ -7,6 +7,12 @@ const Modal = (function () {
   // Stockage des callbacks pour chaque modal
   const callbacks = {};
 
+  // Stockage des données de formulaire pour chaque modal
+  const formData = {};
+
+  // Indicateur de la méthode de fermeture
+  const closeMethod = {};
+
   /**
    * Initialise le système de fenêtres modales
    */
@@ -18,14 +24,37 @@ const Modal = (function () {
     modals.forEach((modal) => {
       const modalId = modal.id;
 
-      // Boutons de fermeture
-      const closeButtons = modal.querySelectorAll(".close-modal");
+      // Initialisation du stockage pour ce modal
+      formData[modalId] = null;
+      closeMethod[modalId] = "save"; // Par défaut, on conserve les données
+
+      // Boutons de fermeture (la croix)
+      const closeButtons = modal.querySelectorAll(
+        ".close-modal:not(.btn-secondary)"
+      );
       closeButtons.forEach((button) => {
         button.addEventListener("click", () => {
+          // Conservation des données avec la croix
+          closeMethod[modalId] = "save";
           close(modalId);
         });
       });
 
+      // Boutons d'annulation (uniquement les boutons "Annuler")
+      const cancelButtons = modal.querySelectorAll(
+        ".btn-secondary.close-modal"
+      );
+      cancelButtons.forEach((button) => {
+        button.addEventListener("click", () => {
+          // Réinitialisation lors de l'annulation
+          closeMethod[modalId] = "reset";
+          close(modalId);
+        });
+      });
+
+      // Suppression des gestionnaires pour le clic en dehors et la touche Escape
+      // (Commenté plutôt que supprimé pour référence)
+      /*
       // Fermeture en cliquant en dehors de la modale
       modal.addEventListener("click", (event) => {
         if (event.target === modal) {
@@ -39,6 +68,7 @@ const Modal = (function () {
           close(modalId);
         }
       });
+      */
     });
 
     // Initialisation du modal de confirmation
@@ -72,6 +102,68 @@ const Modal = (function () {
   };
 
   /**
+   * Sauvegarde les données d'un formulaire
+   * @param {String} modalId - ID de la modale
+   */
+  const saveFormData = (modalId) => {
+    const modal = document.getElementById(modalId);
+    if (!modal) return;
+
+    const form = modal.querySelector("form");
+    if (!form) return;
+
+    // Création d'un objet pour stocker les valeurs
+    const data = {};
+
+    // Récupération de tous les champs du formulaire
+    const elements = form.elements;
+    for (let i = 0; i < elements.length; i++) {
+      const element = elements[i];
+      if (element.name || element.id) {
+        const key = element.name || element.id;
+        if (element.type === "checkbox") {
+          data[key] = element.checked;
+        } else {
+          data[key] = element.value;
+        }
+      }
+    }
+
+    // Sauvegarde des données
+    formData[modalId] = data;
+  };
+
+  /**
+   * Restaure les données d'un formulaire
+   * @param {String} modalId - ID de la modale
+   */
+  const restoreFormData = (modalId) => {
+    const modal = document.getElementById(modalId);
+    if (!modal) return;
+
+    const form = modal.querySelector("form");
+    if (!form || !formData[modalId]) return;
+
+    // Restauration des valeurs dans le formulaire
+    const data = formData[modalId];
+    const elements = form.elements;
+
+    for (let i = 0; i < elements.length; i++) {
+      const element = elements[i];
+      if (element.name || element.id) {
+        const key = element.name || element.id;
+        if (data[key] !== undefined) {
+          if (element.type === "checkbox") {
+            element.checked = data[key];
+          } else {
+            element.value = data[key];
+          }
+        }
+      }
+    }
+  };
+
+  /**
    * Ouvre une fenêtre modale
    * @param {String} modalId - ID de la modale à ouvrir
    * @param {Object} data - Données à passer à la modale
@@ -81,6 +173,11 @@ const Modal = (function () {
     const modal = document.getElementById(modalId);
 
     if (modal) {
+      // Restauration des données du formulaire si disponibles et conservées
+      if (formData[modalId] && closeMethod[modalId] === "save") {
+        restoreFormData(modalId);
+      }
+
       // Affichage de la modale
       modal.classList.add("active");
 
@@ -107,6 +204,14 @@ const Modal = (function () {
     const modal = document.getElementById(modalId);
 
     if (modal) {
+      // Sauvegarde des données du formulaire si méthode de fermeture = 'save'
+      if (closeMethod[modalId] === "save") {
+        saveFormData(modalId);
+      } else {
+        // Réinitialisation des données sauvegardées si méthode = 'reset'
+        formData[modalId] = null;
+      }
+
       // Masquage de la modale
       modal.classList.remove("active");
 
