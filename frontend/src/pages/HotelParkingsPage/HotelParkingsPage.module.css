@@ -1,0 +1,282 @@
+.container {
+    width: 100%;
+    padding: 20px;
+  }
+  
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 24px;
+  }
+  
+  .headerLeft {
+    display: flex;
+    align-items: center;
+  }
+  
+  .backButton {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: transparent;
+    border: none;
+    color: var(--text-medium);
+    margin-right: 16px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+  }
+  
+  .backButton:hover {
+    background-color: var(--bg-light);
+  }
+  
+  .title {
+    font-size: 24px;
+    font-weight: 600;
+    color: var(--text-dark);
+    margin: 0;
+  }
+  
+  .headerActions {
+    display: flex;
+    gap: 12px;
+  }
+  
+  .refreshButton {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 8px 16px;
+    background-color: var(--bg-white);
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    color: var(--text-dark);
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.2s;
+  }
+  
+  .refreshButton:hover {
+    background-color: var(--bg-light);
+  }
+  
+  .addButton {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 8px 16px;
+    background-color: var(--primary-color);
+    border: none;
+    border-radius: 4px;
+    color: white;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.2s;
+  }
+  
+  .addButton:hover {
+    background-color: var(--primary-dark);
+  }
+  
+  .spinning {
+    animation: spin 1s linear infinite;
+  }
+  
+  @keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
+  
+  .errorMessage {
+    padding: 12px 16px;
+    background-color: var(--danger-light);
+    color: var(--danger-color);
+    border-radius: 4px;
+    margin-bottom: 16px;
+  }
+  
+  .loading {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 48px 0;
+  }
+  
+  .loadingSpinner {
+    width: 40px;
+    height: 40px;
+    border: 3px solid var(--bg-light);
+    border-top-color: var(--primary-color);
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    margin-bottom: 16px;
+  }
+  
+  .emptyState {
+    text-align: center;
+    padding: 48px 24px;
+    background-color: var(--bg-white);
+    border-radius: 8px;
+    box-shadow: var(--shadow);
+  }
+  
+  .emptyState p {
+    color: var(--text-medium);
+    margin-bottom: 16px;
+  }
+  
+  .addEmptyButton {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 16px;
+    background-color: var(--primary-color);
+    border: none;
+    border-radius: 4px;
+    color: white;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.2s;
+  }
+  
+  .addEmptyButton:hover {
+    background-color: var(--primary-dark);
+  }
+  
+  .notFound {
+    text-align: center;
+    padding: 48px 24px;
+  }
+  
+  .notFound h1 {
+    color: var(--text-dark);
+    margin-bottom: 16px;
+  }
+  
+  .notFound p {
+    color: var(--text-medium);
+    margin-bottom: 24px;
+  }
+  
+  .confirmDeleteContent {
+    padding: 16px 0;
+  }
+  
+  .parkingToDelete {
+    font-weight: 600;
+    margin-bottom: 16px;
+  }
+  
+  .confirmDeleteWarning {
+    color: var(--danger-color);
+    margin-bottom: 24px;
+  }
+  
+  .confirmActions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 12px;
+  }
+  
+  .cancelButton {
+    padding: 8px 16px;
+    background-color: var(--bg-white);
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    color: var(--text-dark);
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.2s;
+  }
+  
+  .cancelButton:hover {
+    background-color: var(--bg-light);
+  }
+  
+  .deleteButton {
+    padding: 8px 16px;
+    background-color: var(--danger-color);
+    border: none;
+    border-radius: 4px;
+    color: white;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.2s;
+  }
+  
+  .deleteButton:hover {
+    background-color: var(--danger-dark);
+  }
+  
+  /* Media queries pour la responsivité */
+  @media (max-width: 768px) {
+    .header {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 16px;
+    }
+    
+    .headerActions {
+      width: 100%;
+    }
+    
+    .refreshButton, 
+    .addButton {
+      flex: 1;
+      justify-content: center;
+    }
+  }
+  
+  /* Dark mode support */
+  :global(.dark) .title {
+    color: var(--text-light);
+  }
+  
+  :global(.dark) .backButton {
+    color: var(--text-light);
+  }
+  
+  :global(.dark) .backButton:hover {
+    background-color: var(--bg-dark);
+  }
+  
+  :global(.dark) .refreshButton {
+    background-color: var(--bg-white);
+    color: var(--text-dark);
+    border-color: var(--border-color);
+  }
+  
+  :global(.dark) .refreshButton:hover {
+    background-color: var(--bg-dark);
+  }
+  
+  :global(.dark) .errorMessage {
+    background-color: rgba(239, 68, 68, 0.2);
+    color: var(--danger-light);
+  }
+  
+  :global(.dark) .emptyState {
+    background-color: var(--bg-white);
+  }
+  
+  :global(.dark) .cancelButton {
+    background-color: var(--bg-white);
+    color: var(--text-dark);
+    border-color: var(--border-color);
+  }
+  
+  :global(.dark) .cancelButton:hover {
+    background-color: var(--bg-dark);
+  }

@@ -3,11 +3,16 @@ import { parkingService } from "../services/parkingService";
 
 export const fetchParkings = createAsyncThunk(
   "parkings/fetchParkings",
-  async ({ skip = 0, limit = 100 }, { rejectWithValue }) => {
+  async (params = {}, { rejectWithValue }) => {
     try {
+      // Assurer que skip et limit sont définis avec des valeurs par défaut
+      const skip = params?.skip ?? 0;
+      const limit = params?.limit ?? 100;
+
       const response = await parkingService.getParkings(skip, limit);
       return response;
     } catch (error) {
+      console.error("Error fetching parkings:", error);
       return rejectWithValue(error.response?.data || error.message);
     }
   }
@@ -87,10 +92,11 @@ const parkingSlice = createSlice({
       .addCase(fetchParkings.fulfilled, (state, action) => {
         state.status = "succeeded";
         state.items = action.payload;
+        state.error = null;
       })
       .addCase(fetchParkings.rejected, (state, action) => {
         state.status = "failed";
-        state.error = action.payload;
+        state.error = action.payload || action.error.message;
       })
       // fetchParkingById
       .addCase(fetchParkingById.pending, (state) => {
@@ -99,10 +105,11 @@ const parkingSlice = createSlice({
       .addCase(fetchParkingById.fulfilled, (state, action) => {
         state.status = "succeeded";
         state.currentParking = action.payload;
+        state.error = null;
       })
       .addCase(fetchParkingById.rejected, (state, action) => {
         state.status = "failed";
-        state.error = action.payload;
+        state.error = action.payload || action.error.message;
       })
       // createParking
       .addCase(createParking.pending, (state) => {
@@ -111,10 +118,11 @@ const parkingSlice = createSlice({
       .addCase(createParking.fulfilled, (state, action) => {
         state.status = "succeeded";
         state.items.push(action.payload);
+        state.error = null;
       })
       .addCase(createParking.rejected, (state, action) => {
         state.status = "failed";
-        state.error = action.payload;
+        state.error = action.payload || action.error.message;
       })
       // updateParking
       .addCase(updateParking.pending, (state) => {
@@ -129,10 +137,11 @@ const parkingSlice = createSlice({
           state.items[index] = action.payload;
         }
         state.currentParking = action.payload;
+        state.error = null;
       })
       .addCase(updateParking.rejected, (state, action) => {
         state.status = "failed";
-        state.error = action.payload;
+        state.error = action.payload || action.error.message;
       })
       // deleteParking
       .addCase(deleteParking.pending, (state) => {
@@ -149,10 +158,11 @@ const parkingSlice = createSlice({
         ) {
           state.currentParking = null;
         }
+        state.error = null;
       })
       .addCase(deleteParking.rejected, (state, action) => {
         state.status = "failed";
-        state.error = action.payload;
+        state.error = action.payload || action.error.message;
       });
   },
 });

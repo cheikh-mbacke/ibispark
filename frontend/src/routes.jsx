@@ -4,6 +4,9 @@ import { Routes, Route, Navigate } from "react-router-dom";
 // Import des pages avec le lazy loading pour optimiser le chargement
 const Dashboard = React.lazy(() => import("./pages/Dashboard/Dashboard"));
 const HotelsPage = React.lazy(() => import("./pages/HotelsPage/HotelsPage"));
+const HotelParkingsPage = React.lazy(() =>
+  import("./pages/HotelParkingsPage/HotelParkingsPage")
+);
 const ParkingsPage = React.lazy(() =>
   import("./pages/ParkingsPage/ParkingsPage")
 );
@@ -29,6 +32,10 @@ const AppRoutes = () => {
 
         {/* Routes principales */}
         <Route path="/dashboard" element={<Dashboard />} />
+        <Route
+          path="hotels/:hotelId/parkings"
+          element={<HotelParkingsPage />}
+        />
         <Route path="/hotels" element={<HotelsPage />} />
         <Route path="/parkings" element={<ParkingsPage />} />
         <Route path="/spots" element={<SpotsPage />} />

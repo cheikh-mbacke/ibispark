@@ -2,7 +2,7 @@ import axios from "axios";
 
 // Création d'une instance axios avec la configuration de base
 const api = axios.create({
-  baseURL: "http://127.0.0.1:8000 /api", // À remplacer par l'URL réelle de votre API
+  baseURL: "http://localhost:8000/api", // URL corrigée pour correspondre à celle utilisée dans les tests curl
   headers: {
     "Content-Type": "application/json",
   },
@@ -24,6 +24,7 @@ api.interceptors.request.use(
 api.interceptors.response.use(
   (response) => response.data,
   (error) => {
+    console.error("API Error:", error);
     // Gestion des erreurs 401 (non autorisé) - redirection vers la page de connexion
     if (error.response && error.response.status === 401) {
       localStorage.removeItem("token");

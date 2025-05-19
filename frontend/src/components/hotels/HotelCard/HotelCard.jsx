@@ -1,15 +1,8 @@
 import React from "react";
-import {
-  FiEdit2,
-  FiTrash2,
-  FiMapPin,
-  FiPhone,
-  FiMail,
-  FiMap,
-} from "react-icons/fi";
+import { FiEdit2, FiTrash2, FiMapPin, FiMap } from "react-icons/fi";
 import styles from "./HotelCard.module.css";
 
-const HotelCard = ({ hotel, onEdit, onDelete, onViewDetails }) => {
+const HotelCard = ({ hotel, onEdit, onDelete, onViewParkings }) => {
   return (
     <div className={styles["hotel-card"]}>
       <div className={styles["hotel-header"]}>
@@ -30,21 +23,20 @@ const HotelCard = ({ hotel, onEdit, onDelete, onViewDetails }) => {
         <div className={styles["hotel-card-title-container"]}>
           <div>
             <h3 className={styles["hotel-card-title"]}>{hotel.name}</h3>
-            <p className={styles["hotel-card-description"]}>
-              {hotel.description || "Aucune description"}
-            </p>
           </div>
 
           <div className={styles["hotel-card-actions"]}>
             <button
               onClick={() => onEdit(hotel.id)}
               className={styles["hotel-card-edit-button"]}
+              aria-label="Modifier"
             >
               <FiEdit2 className={styles["hotel-card-action-icon"]} />
             </button>
             <button
               onClick={() => onDelete(hotel.id)}
               className={styles["hotel-card-delete-button"]}
+              aria-label="Supprimer"
             >
               <FiTrash2 className={styles["hotel-card-action-icon"]} />
             </button>
@@ -52,28 +44,12 @@ const HotelCard = ({ hotel, onEdit, onDelete, onViewDetails }) => {
         </div>
 
         {/* Informations de contact et emplacement */}
-        <div className={styles["hotel-card-info"]}>
-          {hotel.address && (
-            <div className={styles["hotel-card-location"]}>
-              <FiMapPin className={styles["hotel-card-location-icon"]} />
-              <span>{hotel.address}</span>
-            </div>
-          )}
-
-          {hotel.phone && (
-            <div className={styles["hotel-card-feature"]}>
-              <FiPhone className={styles["hotel-card-feature-icon"]} />
-              <span>{hotel.phone}</span>
-            </div>
-          )}
-
-          {hotel.email && (
-            <div className={styles["hotel-card-feature"]}>
-              <FiMail className={styles["hotel-card-feature-icon"]} />
-              <span>{hotel.email}</span>
-            </div>
-          )}
-        </div>
+        {hotel.address && (
+          <div className={styles["hotel-card-location"]}>
+            <FiMapPin className={styles["hotel-card-location-icon"]} />
+            <span>{hotel.address}</span>
+          </div>
+        )}
 
         {/* Statistiques */}
         <div className={styles["hotel-card-footer"]}>
@@ -91,16 +67,14 @@ const HotelCard = ({ hotel, onEdit, onDelete, onViewDetails }) => {
           </div>
           <div className={styles["hotel-card-stat"]}>
             <p className={styles["hotel-card-stat-label"]}>Occupation</p>
-            <p className={styles["hotel-card-stat-value"]}>
-              {hotel.occupancy_rate || "0%"}
-            </p>
+            <p className={styles["hotel-card-stat-value"]}>0%</p>
           </div>
         </div>
 
         {/* Bouton de détails */}
         <div className={styles["hotel-card-details-button-container"]}>
           <button
-            onClick={() => onViewDetails(hotel.id)}
+            onClick={() => onViewParkings(hotel.id)}
             className={styles["hotel-card-details-button"]}
           >
             <FiMap className={styles["hotel-card-details-icon"]} />

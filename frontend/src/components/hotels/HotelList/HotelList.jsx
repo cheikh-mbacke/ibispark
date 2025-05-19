@@ -39,25 +39,6 @@ const HotelList = ({ hotels = [], onDelete, onRefresh, loading }) => {
             onChange={(e) => setSearchTerm(e.target.value)}
           />
         </div>
-
-        <div className={styles.actionButtons}>
-          <button
-            onClick={onRefresh}
-            className={styles.refreshButton}
-            disabled={loading}
-          >
-            <FiRefreshCw className={loading ? styles.spinning : styles.icon} />
-            Actualiser
-          </button>
-
-          <button
-            onClick={() => navigate("/hotels/new")}
-            className={styles.addButton}
-          >
-            <FiPlus className={styles.icon} />
-            Nouveau
-          </button>
-        </div>
       </div>
 
       {loading ? (

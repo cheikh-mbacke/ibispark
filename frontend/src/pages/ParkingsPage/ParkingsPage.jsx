@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
-import { useReduxActions } from "../hooks/useReduxActions";
-import ParkingList from "../components/parkings/ParkingList";
+import { useReduxActions } from "../../hooks/useReduxActions";
+import ParkingList from "../../components/parking/ParkingList/ParkingList";
 
 const ParkingsPage = () => {
   const { actions, selectors } = useReduxActions();

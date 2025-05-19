@@ -1,0 +1,291 @@
+.container {
+  width: 100%;
+  padding: 20px;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.title {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--text-dark);
+  margin: 0;
+}
+
+.headerActions {
+  display: flex;
+  gap: 12px;
+}
+
+.refreshButton {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 16px;
+  background-color: var(--bg-white);
+  border: 1px solid var(--border-color);
+  border-radius: 4px;
+  color: var(--text-dark);
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.refreshButton:hover {
+  background-color: var(--bg-light);
+}
+
+.refreshButton:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.addButton {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 16px;
+  background-color: var(--primary-color);
+  border: none;
+  border-radius: 4px;
+  color: white;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.addButton:hover {
+  background-color: var(--primary-dark);
+}
+
+.spinning {
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.searchContainer {
+  margin-bottom: 20px;
+}
+
+.searchInput {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid var(--border-color);
+  border-radius: 4px;
+  font-size: 14px;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.searchInput:focus {
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 3px rgba(14, 165, 233, 0.1);
+  outline: none;
+}
+
+.hotelGrid {
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  gap: 20px;
+}
+
+@media (min-width: 640px) {
+  .hotelGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1200px) {
+  .hotelGrid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.loadingContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 300px;
+  color: var(--text-medium);
+}
+
+.loadingSpinner {
+  width: 40px;
+  height: 40px;
+  border: 3px solid var(--bg-light);
+  border-top-color: var(--primary-color);
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  margin-bottom: 16px;
+}
+
+.emptyState {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 300px;
+  text-align: center;
+  background-color: var(--bg-white);
+  border-radius: 8px;
+  box-shadow: var(--shadow);
+  padding: 40px 20px;
+}
+
+.emptyState p {
+  color: var(--text-medium);
+  margin-bottom: 20px;
+  font-size: 16px;
+}
+
+.addEmptyButton {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 20px;
+  background-color: var(--primary-color);
+  border: none;
+  border-radius: 4px;
+  color: white;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.addEmptyButton:hover {
+  background-color: var(--primary-dark);
+}
+
+.clearSearchButton {
+  padding: 8px 16px;
+  background-color: var(--bg-light);
+  border: none;
+  border-radius: 4px;
+  color: var(--text-dark);
+  font-size: 14px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.clearSearchButton:hover {
+  background-color: var(--bg-medium);
+}
+
+.errorMessage {
+  padding: 12px 16px;
+  background-color: var(--danger-light);
+  color: var(--danger-color);
+  border-radius: 4px;
+  margin-bottom: 16px;
+}
+
+.confirmDeleteContent {
+  text-align: center;
+  padding: 10px 0 20px;
+}
+
+.hotelToDelete {
+  font-weight: 600;
+  font-size: 18px;
+  margin: 10px 0 20px;
+}
+
+.confirmActions {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  margin-top: 20px;
+}
+
+.cancelButton {
+  padding: 10px 16px;
+  background-color: var(--bg-white);
+  color: var(--text-dark);
+  border: 1px solid var(--border-color);
+  border-radius: 4px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.cancelButton:hover {
+  background-color: var(--bg-light);
+}
+
+.deleteButton {
+  padding: 10px 16px;
+  background-color: var(--danger-color);
+  color: white;
+  border: none;
+  border-radius: 4px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.deleteButton:hover {
+  background-color: var(--danger-dark);
+}
+
+/* Dark mode support */
+:global(.dark) .title {
+  color: var(--text-light);
+}
+
+:global(.dark) .refreshButton {
+  background-color: var(--bg-white);
+  color: var(--text-dark);
+  border-color: var(--border-color);
+}
+
+:global(.dark) .refreshButton:hover {
+  background-color: var(--bg-dark);
+}
+
+:global(.dark) .searchInput {
+  background-color: var(--bg-white);
+  color: var(--text-dark);
+  border-color: var(--border-color);
+}
+
+:global(.dark) .emptyState {
+  background-color: var(--bg-white);
+}
+
+:global(.dark) .clearSearchButton {
+  background-color: var(--bg-dark);
+  color: var(--text-light);
+}
+
+:global(.dark) .clearSearchButton:hover {
+  background-color: var(--bg-darker);
+}
+
+:global(.dark) .errorMessage {
+  background-color: rgba(239, 68, 68, 0.2);
+  color: var(--danger-light);
+}
+
+:global(.dark) .cancelButton {
+  background-color: var(--bg-white);
+  color: var(--text-dark);
+  border-color: var(--border-color);
+}
+
+:global(.dark) .cancelButton:hover {
+  background-color: var(--bg-dark);
+}

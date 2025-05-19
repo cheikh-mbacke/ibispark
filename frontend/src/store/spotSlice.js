@@ -3,11 +3,16 @@ import { spotService } from "../services/spotService";
 
 export const fetchSpots = createAsyncThunk(
   "spots/fetchSpots",
-  async ({ skip = 0, limit = 100 }, { rejectWithValue }) => {
+  async (params = {}, { rejectWithValue }) => {
     try {
+      // Assurer que skip et limit sont définis avec des valeurs par défaut
+      const skip = params?.skip ?? 0;
+      const limit = params?.limit ?? 100;
+
       const response = await spotService.getSpots(skip, limit);
       return response;
     } catch (error) {
+      console.error("Error fetching spots:", error);
       return rejectWithValue(error.response?.data || error.message);
     }
   }
@@ -30,7 +35,7 @@ export const fetchSpotsByParkingId = createAsyncThunk(
   async (parkingId, { rejectWithValue }) => {
     try {
       const response = await spotService.getSpotsByParkingId(parkingId);
-      return response;
+      return { parkingId, spots: response };
     } catch (error) {
       return rejectWithValue(error.response?.data || error.message);
     }
@@ -97,10 +102,11 @@ const spotSlice = createSlice({
       .addCase(fetchSpots.fulfilled, (state, action) => {
         state.status = "succeeded";
         state.items = action.payload;
+        state.error = null;
       })
       .addCase(fetchSpots.rejected, (state, action) => {
         state.status = "failed";
-        state.error = action.payload;
+        state.error = action.payload || action.error.message;
       })
       // fetchSpotById
       .addCase(fetchSpotById.pending, (state) => {
@@ -109,10 +115,11 @@ const spotSlice = createSlice({
       .addCase(fetchSpotById.fulfilled, (state, action) => {
         state.status = "succeeded";
         state.currentSpot = action.payload;
+        state.error = null;
       })
       .addCase(fetchSpotById.rejected, (state, action) => {
         state.status = "failed";
-        state.error = action.payload;
+        state.error = action.payload || action.error.message;
       })
       // fetchSpotsByParkingId
       .addCase(fetchSpotsByParkingId.pending, (state) => {
@@ -121,11 +128,12 @@ const spotSlice = createSlice({
       .addCase(fetchSpotsByParkingId.fulfilled, (state, action) => {
         state.status = "succeeded";
         // Utilisez l'ID du parking comme clé pour stocker les spots associés
-        state.spotsByParking[action.meta.arg] = action.payload;
+        state.spotsByParking[action.payload.parkingId] = action.payload.spots;
+        state.error = null;
       })
       .addCase(fetchSpotsByParkingId.rejected, (state, action) => {
         state.status = "failed";
-        state.error = action.payload;
+        state.error = action.payload || action.error.message;
       })
       // createSpot
       .addCase(createSpot.pending, (state) => {
@@ -139,10 +147,11 @@ const spotSlice = createSlice({
         if (state.spotsByParking[parkingId]) {
           state.spotsByParking[parkingId].push(action.payload);
         }
+        state.error = null;
       })
       .addCase(createSpot.rejected, (state, action) => {
         state.status = "failed";
-        state.error = action.payload;
+        state.error = action.payload || action.error.message;
       })
       // updateSpot
       .addCase(updateSpot.pending, (state) => {
@@ -173,10 +182,11 @@ const spotSlice = createSlice({
         }
 
         state.currentSpot = action.payload;
+        state.error = null;
       })
       .addCase(updateSpot.rejected, (state, action) => {
         state.status = "failed";
-        state.error = action.payload;
+        state.error = action.payload || action.error.message;
       })
       // deleteSpot
       .addCase(deleteSpot.pending, (state) => {
@@ -197,10 +207,11 @@ const spotSlice = createSlice({
         if (state.currentSpot && state.currentSpot.id === action.payload) {
           state.currentSpot = null;
         }
+        state.error = null;
       })
       .addCase(deleteSpot.rejected, (state, action) => {
         state.status = "failed";
-        state.error = action.payload;
+        state.error = action.payload || action.error.message;
       });
   },
 });
