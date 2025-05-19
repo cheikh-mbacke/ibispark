@@ -1,0 +1,64 @@
+.spot-card {
+    background-color: white;
+    border-radius: 0.5rem;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    transition: all 0.2s;
+    border-left: 3px solid transparent;
+  }
+  
+  .spot-card:hover {
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transform: translateY(-2px);
+  }
+  
+  .spot-card-available {
+    border-left-color: var(--success-color);
+  }
+  
+  .spot-card-occupied {
+    border-left-color: var(--danger-color);
+  }
+  
+  .spot-card-reserved {
+    border-left-color: var(--warning-color);
+  }
+  
+  .spot-card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.5rem;
+  }
+  
+  .spot-card-title {
+    font-weight: 600;
+    color: var(--text-dark);
+  }
+  
+  .spot-card-status {
+    font-size: 0.75rem;
+  }
+  
+  .spot-card-info {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    margin-top: 0.5rem;
+  }
+  
+  .spot-card-detail {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.875rem;
+  }
+  
+  .spot-card-label {
+    color: var(--text-medium);
+  }
+  
+  .spot-card-value {
+    font-weight: 500;
+  }

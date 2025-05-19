@@ -1,0 +1,56 @@
+/* Layout.module.css */
+.layout {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.layout-content {
+  display: flex;
+  flex: 1;
+}
+
+.layout-main {
+  flex: 1;
+  padding: 1.5rem;
+  margin-left: 0;
+  transition: margin-left 0.3s ease;
+}
+
+.loginMain {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+}
+
+.footer {
+  width: 100%;
+  transition: margin-left 0.3s ease, width 0.3s ease;
+}
+
+.footerCollapsed {
+  width: 100%;
+  transition: margin-left 0.3s ease, width 0.3s ease;
+}
+
+@media (min-width: 768px) {
+  .layout-main {
+    margin-left: var(--sidebar-width);
+  }
+  
+  .layout-main-collapsed {
+    margin-left: 60px;
+  }
+
+  .footer {
+    margin-left: var(--sidebar-width);
+    width: calc(100% - var(--sidebar-width));
+  }
+
+  .footerCollapsed {
+    margin-left: 60px;
+    width: calc(100% - 60px);
+  }
+}

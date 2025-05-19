@@ -1,0 +1,183 @@
+/* Styles spécifiques au composant ParkingOverview */
+.parking-overview {
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+@media (min-width: 640px) {
+  .parking-overview {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .parking-overview {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.parking-overview-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.parking-overview-title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--text-dark);
+}
+
+.tableContainer {
+  background-color: var(--bg-white);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow);
+  margin-bottom: 1.5rem;
+  overflow: hidden;
+}
+
+.tableWrapper {
+  overflow-x: auto;
+}
+
+.table {
+  min-width: 100%;
+  border-collapse: collapse;
+}
+
+.tableHeader {
+  background-color: var(--bg-light);
+}
+
+.tableHeadCell {
+  padding: 0.75rem 1.5rem;
+  text-align: left;
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: var(--text-medium);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.tableBody {
+  background-color: var(--bg-white);
+}
+
+.tableRow {
+  border-top: 1px solid var(--border-color);
+}
+
+.tableCell {
+  padding: 1rem 1.5rem;
+  white-space: nowrap;
+}
+
+.parkingName {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--text-dark);
+}
+
+.hotelName, .capacity {
+  font-size: 0.875rem;
+  color: var(--text-medium);
+}
+
+.progressContainer {
+  width: 100%;
+  background-color: var(--bg-light);
+  border-radius: 9999px;
+  height: 0.625rem;
+}
+
+.progressBar {
+  height: 100%;
+  border-radius: 9999px;
+}
+
+.progressGreen {
+  background-color: var(--success-color);
+}
+
+.progressYellow {
+  background-color: var(--warning-color);
+}
+
+.progressRed {
+  background-color: var(--danger-color);
+}
+
+.progressText {
+  font-size: 0.75rem;
+  color: var(--text-medium);
+  margin-top: 0.25rem;
+}
+
+.statusAvailable, .statusBusy, .statusFull {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.25rem 0.5rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  border-radius: 9999px;
+}
+
+.statusAvailable {
+  background-color: var(--success-light);
+  color: var(--success-dark);
+}
+
+.statusBusy {
+  background-color: var(--warning-light);
+  color: var(--warning-dark);
+}
+
+.statusFull {
+  background-color: var(--danger-light);
+  color: var(--danger-dark);
+}
+
+.statusIcon {
+  margin-right: 0.25rem;
+}
+
+.emptyState {
+  background-color: var(--bg-white);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow);
+  padding: 1.5rem;
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+
+.emptyText {
+  color: var(--text-medium);
+}
+
+/* Dark mode support */
+:global(.dark) .tableContainer {
+  background-color: var(--bg-white);
+}
+
+:global(.dark) .tableHeader {
+  background-color: var(--bg-dark);
+}
+
+:global(.dark) .tableBody {
+  background-color: var(--bg-white);
+}
+
+:global(.dark) .tableRow {
+  border-top-color: var(--border-color);
+}
+
+:global(.dark) .progressContainer {
+  background-color: var(--bg-dark);
+}
+
+:global(.dark) .emptyState {
+  background-color: var(--bg-white);
+}

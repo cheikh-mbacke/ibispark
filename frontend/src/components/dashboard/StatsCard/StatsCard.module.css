@@ -1,0 +1,91 @@
+.stat-card {
+  background-color: var(--bg-white);
+  border-radius: 0.5rem;
+  box-shadow: var(--shadow);
+  padding: 1.25rem;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  border-left: 4px solid transparent;
+  transition: var(--transition);
+}
+
+.stat-card:hover {
+  box-shadow: var(--shadow-md);
+  transform: translateY(-2px);
+}
+
+.stat-card-primary {
+  border-left-color: var(--primary-color);
+}
+
+.stat-card-secondary {
+  border-left-color: var(--secondary-color);
+}
+
+.stat-card-accent {
+  border-left-color: var(--accent-color);
+}
+
+.stat-card-success {
+  border-left-color: var(--success-color);
+}
+
+.stat-card-info {
+  flex: 1;
+}
+
+.stat-card-title {
+  color: var(--text-medium);
+  font-size: 0.875rem;
+  margin-bottom: 0.5rem;
+}
+
+.stat-card-value {
+  font-size: 1.75rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  color: var(--text-dark);
+}
+
+.stat-card-trend {
+  font-size: 0.875rem;
+  color: var(--success-color);
+  display: flex;
+  align-items: center;
+}
+
+.trend-down {
+  color: var(--danger-color);
+}
+
+.stat-card-icon {
+  width: 3rem;
+  height: 3rem;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--primary-light);
+  color: var(--primary-color);
+}
+
+/* Dark mode support */
+:global(.dark) .stat-card {
+  background-color: var(--bg-white);
+  box-shadow: var(--shadow);
+}
+
+:global(.dark) .stat-card:hover {
+  box-shadow: var(--shadow-md);
+}
+
+:global(.dark) .stat-card-trend {
+  color: var(--success-color);
+}
+
+:global(.dark) .trend-down {
+  color: var(--danger-color);
+}

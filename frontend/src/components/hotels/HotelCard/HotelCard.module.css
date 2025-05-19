@@ -1,0 +1,202 @@
+/* HotelCard.module.css */
+.hotel-card {
+  background-color: var(--bg-white);
+  border-radius: 0.5rem;
+  box-shadow: var(--shadow);
+  overflow: hidden;
+  transition: var(--transition);
+}
+
+.hotel-card:hover {
+  box-shadow: var(--shadow-md);
+  transform: translateY(-2px);
+}
+
+.hotel-header {
+  position: relative;
+}
+
+.hotel-card-banner {
+  height: 8rem;
+  background-image: linear-gradient(to right, var(--primary-color), var(--secondary-color));
+  border-top-left-radius: 0.5rem;
+  border-top-right-radius: 0.5rem;
+}
+
+.hotel-card-avatar-container {
+  position: absolute;
+  bottom: -1.5rem;
+  left: 1rem;
+}
+
+.hotel-card-avatar {
+  width: 4rem;
+  height: 4rem;
+  border-radius: 9999px;
+  background-color: var(--bg-white);
+  box-shadow: var(--shadow-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid var(--bg-white);
+}
+
+.hotel-card-avatar-text {
+  font-size: 1.5rem;
+}
+
+.hotel-card-content {
+  padding-top: 2rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  padding-bottom: 1rem;
+}
+
+.hotel-card-title-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.hotel-card-title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--text-dark);
+}
+
+.hotel-card-description {
+  font-size: 0.875rem;
+  color: var(--text-medium);
+  margin-top: 0.25rem;
+}
+
+.hotel-card-actions {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.hotel-card-edit-button {
+  padding: 0.5rem;
+  border-radius: 9999px;
+  color: var(--text-medium);
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.hotel-card-edit-button:hover {
+  background-color: var(--bg-light);
+}
+
+.hotel-card-delete-button {
+  padding: 0.5rem;
+  border-radius: 9999px;
+  color: var(--danger-color);
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.hotel-card-delete-button:hover {
+  background-color: var(--danger-light);
+}
+
+.hotel-card-action-icon {
+  width: 1rem;
+  height: 1rem;
+}
+
+.hotel-card-info {
+  margin-top: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.hotel-card-location, .hotel-card-feature {
+  display: flex;
+  align-items: center;
+  font-size: 0.875rem;
+  color: var(--text-medium);
+}
+
+.hotel-card-location-icon, .hotel-card-feature-icon {
+  margin-right: 0.5rem;
+  width: 1rem;
+  height: 1rem;
+}
+
+.hotel-card-footer {
+  margin-top: 1rem;
+  padding-top: 1rem;
+  display: flex;
+  justify-content: space-between;
+  border-top: 1px solid var(--border-color);
+}
+
+.hotel-card-stat {
+  text-align: center;
+}
+
+.hotel-card-stat-label {
+  font-size: 0.75rem;
+  color: var(--text-medium);
+}
+
+.hotel-card-stat-value {
+  font-weight: 600;
+  color: var(--text-dark);
+}
+
+.hotel-card-details-button-container {
+  margin-top: 1rem;
+}
+
+.hotel-card-details-button {
+  width: 100%;
+  padding: 0.5rem 0;
+  background-color: var(--primary-light);
+  color: var(--primary-color);
+  border-radius: 0.375rem;
+  font-weight: 500;
+  font-size: 0.875rem;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hotel-card-details-button:hover {
+  background-color: var(--primary-light);
+  opacity: 0.8;
+}
+
+.hotel-card-details-icon {
+  margin-right: 0.5rem;
+}
+
+/* Dark mode support */
+:global(.dark) .hotel-card {
+  background-color: var(--bg-white);
+}
+
+:global(.dark) .hotel-card-avatar {
+  background-color: var(--bg-white);
+  border-color: var(--bg-white);
+}
+
+:global(.dark) .hotel-card-footer {
+  border-top-color: var(--border-color);
+}
+
+:global(.dark) .hotel-card-edit-button:hover {
+  background-color: var(--bg-dark);
+}
+
+:global(.dark) .hotel-card-delete-button:hover {
+  background-color: rgba(239, 68, 68, 0.2);
+}

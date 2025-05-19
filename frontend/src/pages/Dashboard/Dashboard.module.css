@@ -1,0 +1,305 @@
+/* Dashboard.module.css */
+.dashboard {
+  width: 100%;
+}
+
+.dashboard-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+}
+
+.dashboard-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--text-dark);
+}
+
+.reportButton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.5rem 1rem;
+  background-color: var(--primary-color);
+  color: var(--text-light);
+  border: none;
+  border-radius: var(--radius);
+  font-size: 0.875rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.reportButton:hover {
+  background-color: var(--primary-dark);
+}
+
+.buttonIcon {
+  margin-right: 0.5rem;
+}
+
+/* Stats Cards */
+.stats-row {
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+@media (min-width: 640px) {
+  .stats-row {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .stats-row {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+.statCard {
+  background-color: var(--bg-white);
+  border-radius: 0.5rem;
+  box-shadow: var(--shadow);
+  padding: 1.25rem;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  border-left: 4px solid var(--primary-color);
+  transition: var(--transition);
+}
+
+.statCard:hover {
+  box-shadow: var(--shadow-md);
+  transform: translateY(-2px);
+}
+
+.statCardInfo {
+  flex: 1;
+}
+
+.statCardTitle {
+  color: var(--text-medium);
+  font-size: 0.875rem;
+  margin-bottom: 0.5rem;
+}
+
+.statCardValue {
+  font-size: 1.75rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  color: var(--text-dark);
+}
+
+.statCardTrend {
+  font-size: 0.875rem;
+  color: var(--success-color);
+  display: flex;
+  align-items: center;
+}
+
+.statCardIcon {
+  width: 3rem;
+  height: 3rem;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.primaryIcon {
+  background-color: var(--primary-light);
+  color: var(--primary-color);
+}
+
+.secondaryIcon {
+  background-color: var(--secondary-light);
+  color: var(--secondary-color);
+}
+
+.accentIcon {
+  background-color: var(--accent-light);
+  color: var(--accent-color);
+}
+
+.successIcon {
+  background-color: var(--success-light);
+  color: var(--success-color);
+}
+
+/* Charts */
+.charts-row {
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  gap: 1.25rem;
+  margin-bottom: 1.5rem;
+}
+
+@media (min-width: 768px) {
+  .charts-row {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.chartCard {
+  background-color: var(--bg-white);
+  border-radius: 0.5rem;
+  box-shadow: var(--shadow);
+  overflow: hidden;
+}
+
+.chartHeader {
+  padding: 1rem 1.25rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.chartTitle {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--text-dark);
+}
+
+.chartActions {
+  display: flex;
+}
+
+.chartAction {
+  width: 2rem;
+  height: 2rem;
+  border-radius: 0.25rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  color: var(--text-medium);
+  transition: all 0.2s;
+}
+
+.chartAction:hover {
+  background-color: var(--bg-light);
+  color: var(--primary-color);
+}
+
+.chartContent {
+  padding: 1.25rem;
+  height: 18.75rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--bg-light);
+  color: var(--text-medium);
+}
+
+/* Activity */
+.activityCard {
+  background-color: var(--bg-white);
+  border-radius: 0.5rem;
+  box-shadow: var(--shadow);
+  overflow: hidden;
+  margin-bottom: 1.5rem;
+}
+
+.activityHeader {
+  padding: 1rem 1.25rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.activityTitle {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--text-dark);
+}
+
+.activityDate {
+  font-size: 0.875rem;
+  color: var(--text-medium);
+}
+
+.activityList {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+.activityItem {
+  padding: 1rem 1.25rem;
+  display: flex;
+  align-items: flex-start;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.activityItem:last-child {
+  border-bottom: none;
+}
+
+.activityItemIcon {
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 1rem;
+  color: var(--text-light);
+  flex-shrink: 0;
+}
+
+.activityIconSuccess {
+  background-color: var(--success-color);
+}
+
+.activityIconDanger {
+  background-color: var(--danger-color);
+}
+
+.activityIconInfo {
+  background-color: var(--primary-color);
+}
+
+.activityItemContent {
+  flex: 1;
+}
+
+.activityItemTitle {
+  font-weight: 600;
+  margin-bottom: 0.25rem;
+  color: var(--text-dark);
+}
+
+.activityItemDescription {
+  font-size: 0.875rem;
+  color: var(--text-medium);
+  margin-bottom: 0.25rem;
+}
+
+.activityItemTime {
+  font-size: 0.75rem;
+  color: var(--text-medium);
+}
+
+/* Dark mode support */
+:global(.dark) .statCard,
+:global(.dark) .chartCard,
+:global(.dark) .activityCard {
+  background-color: var(--bg-white);
+}
+
+:global(.dark) .chartContent {
+  background-color: var(--bg-dark);
+}
+
+:global(.dark) .chartHeader,
+:global(.dark) .activityHeader,
+:global(.dark) .activityItem {
+  border-bottom-color: var(--border-color);
+}

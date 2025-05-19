@@ -1,0 +1,64 @@
+.chart-card {
+  background-color: var(--bg-white);
+  border-radius: 0.5rem;
+  box-shadow: var(--shadow);
+  overflow: hidden;
+}
+
+.chart-header {
+  padding: 1rem 1.25rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.chart-title {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--text-dark);
+}
+
+.chart-actions {
+  display: flex;
+}
+
+.chart-action {
+  width: 2rem;
+  height: 2rem;
+  border-radius: 0.25rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  color: var(--text-medium);
+  transition: all 0.2s;
+}
+
+.chart-action:hover {
+  background-color: var(--bg-light);
+  color: var(--primary-color);
+}
+
+.chart-content {
+  padding: 1.25rem;
+  height: 18.75rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--bg-light);
+  color: var(--text-medium);
+}
+
+/* Dark mode support */
+:global(.dark) .chart-card {
+  background-color: var(--bg-white);
+}
+
+:global(.dark) .chart-header {
+  border-bottom-color: var(--border-color);
+}
+
+:global(.dark) .chart-content {
+  background-color: var(--bg-dark);
+}
