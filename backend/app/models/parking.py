@@ -1,8 +1,9 @@
 """
 Modèle SQLAlchemy restructuré pour la hiérarchie Hôtels → Parkings → Emplacements
 """
-from sqlalchemy import Column, Integer, String, Float, Boolean, ForeignKey, JSON, Table
+from sqlalchemy import Column, Integer, String, Float, Boolean, ForeignKey, Text, Table
 from sqlalchemy.orm import relationship
+import json
 
 from database import Base
 
@@ -27,8 +28,8 @@ class Hotel(Base):
     __tablename__ = "hotels"
 
     id = Column(Integer, primary_key=True, index=True)
-    name = Column(String, unique=True, index=True)
-    address = Column(String)
+    name = Column(String(255), unique=True, index=True)
+    address = Column(String(255))
     
     # Relation avec les parkings
     parkings = relationship("Parking", back_populates="hotel", cascade="all, delete-orphan")
@@ -38,10 +39,10 @@ class Parking(Base):
     __tablename__ = "parkings"
 
     id = Column(Integer, primary_key=True, index=True)
-    name = Column(String, index=True)
+    name = Column(String(255), index=True)
     hotel_id = Column(Integer, ForeignKey("hotels.id"))
-    description = Column(String, nullable=True)
-    location = Column(String, nullable=True)  # Ex: "Souterrain", "Extérieur", etc.
+    description = Column(String(255), nullable=True)
+    location = Column(String(255), nullable=True)  # Ex: "Souterrain", "Extérieur", etc.
     total_capacity = Column(Integer, default=0)
     
     # Relations
@@ -53,8 +54,8 @@ class Status(Base):
     __tablename__ = "statuses"
 
     id = Column(Integer, primary_key=True, index=True)
-    value = Column(String, unique=True, index=True)
-    color = Column(String)
+    value = Column(String(255), unique=True, index=True)
+    color = Column(String(50))
     
     # Relation avec les emplacements
     spots = relationship(
@@ -79,8 +80,8 @@ class ParkingSpot(Base):
     
     # Localisation
     floor = Column(Integer)
-    section = Column(String)
-    address = Column(String)
+    section = Column(String(255))
+    address = Column(String(255))
     
     # Équipement
     electric_charging = Column(Boolean, default=False)
@@ -92,8 +93,8 @@ class ParkingSpot(Base):
     daily_rate = Column(Float)
     monthly_rate = Column(Float)
     
-    # Photos (stockées en JSON)
-    pictures = Column(JSON)
+    # Photos (stockées en JSON sous forme de texte pour MySQL)
+    pictures = Column(Text)
     
     # Relations
     parking = relationship("Parking", back_populates="spots")
@@ -107,13 +108,24 @@ class ParkingSpot(Base):
         secondary=spot_statuses,
         back_populates="spots"
     )
+    
+    # Méthodes pour la gestion des images JSON
+    @property
+    def pictures_list(self):
+        if self.pictures:
+            return json.loads(self.pictures)
+        return []
+    
+    @pictures_list.setter
+    def pictures_list(self, value):
+        self.pictures = json.dumps(value)
 
 class SpotType(Base):
     """Modèle pour les types d'emplacement"""
     __tablename__ = "spot_type"
 
     id = Column(Integer, primary_key=True, index=True)
-    value = Column(String, unique=True, index=True)
+    value = Column(String(255), unique=True, index=True)
     
     # Relation avec les emplacements
     spots = relationship(

@@ -1,28 +1,28 @@
-"""
-Configuration Alembic pour les migrations de base de données
-"""
 from logging.config import fileConfig
-
 from sqlalchemy import engine_from_config
 from sqlalchemy import pool
-
 from alembic import context
-
-# Importer les modèles pour qu'ils soient disponibles dans les migrations
-from models.parking import Base
-from database import SQLALCHEMY_DATABASE_URL
+import sys
+import os
 
 # this is the Alembic Config object, which provides
 # access to the values within the .ini file in use.
 config = context.config
 
-# Interpréter la section sqlalchemy.url de la config en remplaçant par l'URL de connexion
-config.set_main_option("sqlalchemy.url", SQLALCHEMY_DATABASE_URL)
-
 # Interpret the config file for Python logging.
 # This line sets up loggers basically.
 if config.config_file_name is not None:
     fileConfig(config.config_file_name)
+
+# Ajouter le chemin du projet au sys.path pour pouvoir importer les modules
+sys.path.insert(0, os.path.dirname(os.path.dirname(__file__)))
+
+# Import de nos modèles et de notre URL de base de données
+from app.models.parking import Base
+from database import SQLALCHEMY_DATABASE_URL
+
+# Définir l'URL de la base de données dans la configuration Alembic
+config.set_main_option("sqlalchemy.url", SQLALCHEMY_DATABASE_URL)
 
 # add your model's MetaData object here
 # for 'autogenerate' support
@@ -32,7 +32,6 @@ target_metadata = Base.metadata
 # can be acquired:
 # my_important_option = config.get_main_option("my_important_option")
 # ... etc.
-
 
 def run_migrations_offline() -> None:
     """Run migrations in 'offline' mode.
@@ -66,7 +65,7 @@ def run_migrations_online() -> None:
 
     """
     connectable = engine_from_config(
-        config.get_section(config.config_ini_section, {}),
+        config.get_section(config.config_ini_section),
         prefix="sqlalchemy.",
         poolclass=pool.NullPool,
     )
